@@ -4,6 +4,22 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  // Configuración para GitHub Pages
+  // Si usas un dominio personalizado, comenta la siguiente línea o déjala como '/'
+  base: '/Joel_Portfolio/',
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+    // Optimizaciones de build
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom'],
+          'i18n-vendor': ['react-i18next', 'i18next'],
+        }
+      }
+    }
+  },
   server: {
     // Configuraciones específicas para Windows
     watch: {
