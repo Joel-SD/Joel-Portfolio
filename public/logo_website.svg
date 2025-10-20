@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="220" viewBox="0 0 220 220">
+  <title>Favicon Chip Optimizado</title>
+  <rect x="28" y="28" width="164" height="164" rx="26" fill="#FFF" stroke="#000" stroke-width="14"/>
+  <g stroke="#000" stroke-width="14" stroke-linecap="round">
+    <!-- Arriba -->
+    <line x1="80" y1="14" x2="80" y2="28"/>
+    <line x1="140" y1="14" x2="140" y2="28"/>
+    <!-- Abajo -->
+    <line x1="80" y1="192" x2="80" y2="206"/>
+    <line x1="140" y1="192" x2="140" y2="206"/>
+    <!-- Izquierda -->
+    <line x1="14" y1="80" x2="28" y2="80"/>
+    <line x1="14" y1="140" x2="28" y2="140"/>
+    <!-- Derecha -->
+    <line x1="192" y1="80" x2="206" y2="80"/>
+    <line x1="192" y1="140" x2="206" y2="140"/>
+  </g>
+  <g fill="#000">
+    <polygon points="96,80 64,110 96,140 80,140 48,110 80,80"/>
+    <polygon points="124,80 156,110 124,140 140,140 172,110 140,80"/>
+    <rect x="106" y="72" width="8" height="76" rx="4"/>
+  </g>
+</svg>
