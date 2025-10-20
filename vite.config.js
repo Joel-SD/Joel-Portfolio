@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   // Configuración para GitHub Pages
   // Si usas un dominio personalizado, comenta la siguiente línea o déjala como '/'
-  base: '/Joel_Portfolio/',
+  base: '/Joel-Portfolio/',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
