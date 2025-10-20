@@ -46,7 +46,7 @@ export const portfolioData = {
         es: 'Hypernova Labs',
       },
       website: 'https://www.hypernovalabs.com/',
-      logo: '/assets/companies/hypernova_labs_logo.jpg',
+      logo: '/Joel-Portfolio/assets/companies/hypernova_labs_logo.jpg',
       position: {
         en: 'Full Stack Developer',
         es: 'Desarrollador Full Stack',
@@ -66,7 +66,7 @@ export const portfolioData = {
         es: 'Banco General',
       },
       website: 'https://www.bgeneral.com/',
-      logo: '/assets/companies/banco_general_logo.png',
+      logo: '/Joel-Portfolio/assets/companies/banco_general_logo.png',
       position: {
         en: 'Software Developer',
         es: 'Desarrollador de Software',
@@ -86,7 +86,7 @@ export const portfolioData = {
         es: 'RednBlue',
       },
       website: 'https://rednbluepty.com/en/',
-      logo: '/assets/companies/rednblue_logo.jpg',
+      logo: '/Joel-Portfolio/assets/companies/rednblue_logo.jpg',
       position: {
         en: 'Software Developer',
         es: 'Desarrollador de Software',

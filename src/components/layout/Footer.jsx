@@ -13,7 +13,7 @@ const Footer = () => {
           {/* Logo and Name */}
           <div className="flex items-center mb-2 sm:mb-0">
             <img 
-              src="/logo_website.svg" 
+              src="/Joel-Portfolio/logo_website.svg" 
               alt={t('footer.logoAlt')}
               className="w-9 h-9"
             />
