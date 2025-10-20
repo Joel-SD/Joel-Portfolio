@@ -1,0 +1,127 @@
+{
+  "header": {
+    "about": "",
+    "skills": "Habilidades",
+    "aboutMe": "Sobre Mí",
+    "experience": "Experiencia",
+    "contact": "Contáctame",
+    "resume": "Currículum"
+  },
+  "hero": {
+    "greeting": "Hola soy",
+    "title": "Desarrollador de Software",
+    "location": "Ubicado en",
+    "bio": "Soy un desarrollador frontend apasionado con experiencia en la creación de interfaces de usuario responsivas e interactivas."
+  },
+  "sections": {
+    "skills": "Mis",
+    "experience": "Mi Experiencia",
+    "projects": "Mis Proyectos",
+    "contact": "Contáctame"
+  },
+  "skills": {
+    "description": "Tecnologías y herramientas con las que trabajo para crear experiencias digitales increíbles.",
+    "additional": "Siempre aprendiendo nuevas tecnologías y manteniéndome actualizado con las últimas tendencias en desarrollo web."
+  },
+  "experience": {
+    "current": "Presente",
+    "responsibilities": "Responsabilidades"
+  },
+  "buttons": {
+    "viewAll": "Ver Todo",
+    "viewProject": "Ver Proyecto",
+    "sendMessage": "Enviar Mensaje",
+    "downloadCV": "Descargar CV"
+  },
+  "resume": {
+    "downloading": "Descargando CV..."
+  },
+  "language": {
+    "switchTo": "Cambiar a",
+    "english": "Inglés",
+    "spanish": "Español",
+    "currentLanguage": "Idioma actual: Español",
+    "flags": {
+      "us": {
+        "alt": "Bandera de Estados Unidos",
+        "colors": {
+          "stripes": "#B22234",
+          "stars": "#3C3B6E",
+          "white": "#FFFFFF"
+        }
+      },
+      "spain": {
+        "alt": "Bandera de España",
+        "colors": {
+          "red": "#AA151B",
+          "yellow": "#F1BF00"
+        }
+      }
+    }
+  },
+  "contact": {
+    "title": "Ponte en",
+    "titleHighlight": "Contacto",
+    "subtitle": "¿Listo para dar vida a tus ideas? Hablemos sobre tu proyecto y creemos algo increíble juntos.",
+    "formTitle": "Envíame un mensaje",
+    "letsTalk": "Hablemos",
+    "talkHighlight": "para",
+    "talkFor": "algo",
+    "somethingSpecial": "Especial",
+    "description": "Busco empujar los límites de la creatividad para crear experiencias interactivas atractivas, fáciles de usar y memorables. ¡Colaboremos!",
+    "form": {
+      "description": "Completa el formulario a continuación y me pondré en contacto contigo lo antes posible.",
+      "namePlaceholder": "Tu nombre completo *",
+      "emailPlaceholder": "tu.email@ejemplo.com *",
+      "subjectPlaceholder": "Asunto *",
+      "websitePlaceholder": "https://tusitio.com (opcional)",
+      "messagePlaceholder": "Cuéntame sobre tu proyecto... *",
+      "sending": "Enviando...",
+      "sendMessage": "Enviar Mensaje",
+      "successMessage": "¡Gracias! Tu mensaje ha sido enviado exitosamente.",
+      "errorMessage": "Algo salió mal. Por favor intenta de nuevo."
+    },
+    "validation": {
+      "emailRequired": "El email es requerido",
+      "emailInvalid": "Por favor ingresa un email válido",
+      "subjectRequired": "El asunto es requerido",
+      "subjectMinLength": "El asunto debe tener al menos 3 caracteres",
+      "subjectMaxLength": "El asunto debe tener menos de 100 caracteres",
+      "messageRequired": "El mensaje es requerido",
+      "messageMinLength": "El mensaje debe tener al menos 10 caracteres",
+      "messageMaxLength": "El mensaje debe tener menos de 1000 caracteres"
+    },
+    "labels": {
+      "email": "Correo",
+      "phone": "Teléfono",
+      "whatsapp": "WhatsApp",
+      "linkedin": "LinkedIn",
+      "github": "GitHub"
+    },
+    "buttons": {
+      "send": "Enviar Mensaje",
+      "sending": "Enviando...",
+      "social": {
+        "openEmail": "Abriendo cliente de correo...",
+        "openPhone": "Abriendo teléfono...",
+        "openWhatsapp": "Abriendo WhatsApp...",
+        "openLinkedin": "Abriendo LinkedIn...",
+        "openGithub": "Abriendo GitHub..."
+      }
+    }
+  },
+  "toast": {
+    "emailSent": "✅ ¡Email enviado exitosamente!",
+    "emailError": "❌ Error al enviar email. Por favor intenta de nuevo.",
+    "cvDownloadSuccess": "✅ ¡{{fileName}} descargado exitosamente!",
+    "cvDownloadError": "❌ Error al descargar CV. Por favor intenta de nuevo.",
+    "formValidationError": "⚠️ Por favor completa todos los campos requeridos correctamente.",
+    "networkError": "🌐 Error de red. Por favor verifica tu conexión.",
+    "unexpectedError": "💥 Ocurrió un error inesperado. Por favor intenta de nuevo."
+  },
+  "footer": {
+    "copyright": "© {{year}} Joel Carrasco.",
+    "madeWith": "Hecho con Vite & React",
+    "logoAlt": "Logo de Joel Carrasco"
+  }
+}

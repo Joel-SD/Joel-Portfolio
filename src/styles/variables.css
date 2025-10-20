@@ -1,0 +1,61 @@
+* {
+  margin: 0px 0px;
+  padding: 0px 0px;
+  box-sizing: border-box;
+}
+
+:root {
+  --max-width-sections: 1200px;
+  /* Color system for text */
+  --text-primary: #000000;    /* Para títulos y texto principal */
+  --text-secondary: #404040;  /* Para subtítulos y texto importante */
+  --text-muted: #6b7280;     /* Para texto descriptivo y secundario */
+  --text-error: #ef4444;     /* Para mensajes de error */
+  
+  /* Otros colores del sistema */
+  --color-primary: #000000;
+  --color-secondary: #ffffff;
+  --color-accent: #3b82f6;
+  --color-background: #ffffff;
+  --color-card-bg: #f3f4f6;
+
+  /* Espaciado */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+
+  /* Border */
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 1rem;
+
+  /* Transiciones */
+  --transition-fast: 150ms ease;
+  --transition-normal: 300ms ease;
+  --transition-slow: 500ms ease;
+
+  /* font sizes */
+  --font-size-xs: 12px;      /* Para texto muy pequeño como etiquetas */
+  --font-size-sm: 14px;      /* Para texto secundario */
+  --font-size-base: 16px;    /* Texto base */
+  --font-size-lg: 18px;      /* Texto destacado */
+  --font-size-xl: 20px;      /* Subtítulos pequeños */
+  --font-size-2xl: 24px;     /* Subtítulos */
+  --font-size-3xl: 32px;     /* Títulos pequeños */
+  --font-size-4xl: 40px;     /* Títulos medianos */
+  --font-size-5xl: 48px;     /* Títulos grandes */
+}
+
+/* Tema oscuro - se activará cuando se implemente el toggle */
+.dark-theme {
+  --color-primary: #ffffff;
+  --color-secondary: #000000;
+  --color-accent: #3b82f6;
+  --color-background: #121212;
+  --color-text: #f3f4f6;
+  --color-text-light: #9ca3af;
+  --color-card-bg: #1f2937;
+}

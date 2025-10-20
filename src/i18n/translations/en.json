@@ -1,0 +1,127 @@
+{
+  "header": {
+    "about": "",
+    "skills": "Skills",
+    "aboutMe": "About Me",
+    "experience": "Experience",
+    "contact": "Contact Me",
+    "resume": "Resume"
+  },
+  "hero": {
+    "greeting": "Hello I'm",
+    "title": "Software Developer",
+    "location": "Located in",
+    "bio": "I'm a passionate frontend developer with expertise in creating responsive, interactive user interfaces."
+  },
+  "sections": {
+    "skills": "My",
+    "experience": "My Experience",
+    "projects": "My Projects",
+    "contact": "Contact Me"
+  },
+  "skills": {
+    "description": "Technologies and tools I work with to create amazing digital experiences.",
+    "additional": "Always learning new technologies and staying up to date with the latest trends in web development."
+  },
+  "experience": {
+    "current": "Present",
+    "responsibilities": "Responsibilities"
+  },
+  "buttons": {
+    "viewAll": "View All",
+    "viewProject": "View Project",
+    "sendMessage": "Send Message",
+    "downloadCV": "Download CV"
+  },
+  "resume": {
+    "downloading": "Downloading Resume..."
+  },
+  "language": {
+    "switchTo": "Switch to",
+    "english": "English",
+    "spanish": "Spanish",
+    "currentLanguage": "Current language: English",
+    "flags": {
+      "us": {
+        "alt": "United States Flag",
+        "colors": {
+          "stripes": "#B22234",
+          "stars": "#3C3B6E",
+          "white": "#FFFFFF"
+        }
+      },
+      "spain": {
+        "alt": "Spanish Flag",
+        "colors": {
+          "red": "#AA151B",
+          "yellow": "#F1BF00"
+        }
+      }
+    }
+  },
+  "contact": {
+    "title": "Get In",
+    "titleHighlight": "Touch",
+    "subtitle": "Ready to bring your ideas to life? Let's discuss your project and create something amazing together.",
+    "formTitle": "Send me a message",
+    "letsTalk": "Let's",
+    "talkHighlight": "talk",
+    "talkFor": "for",
+    "somethingSpecial": "Something special",
+    "description": "I seek to push the limits of creativity to create high-engaging, user-friendly, and memorable interactive experiences. Let's collaborate!",
+    "form": {
+      "description": "Fill out the form below and I'll get back to you as soon as possible.",
+      "namePlaceholder": "Your full name *",
+      "emailPlaceholder": "your.email@example.com *",
+      "subjectPlaceholder": "Subject *",
+      "websitePlaceholder": "https://yourwebsite.com (optional)",
+      "messagePlaceholder": "Tell me about your project... *",
+      "sending": "Sending...",
+      "sendMessage": "Send Message",
+      "successMessage": "Thank you! Your message has been sent successfully.",
+      "errorMessage": "Something went wrong. Please try again."
+    },
+    "validation": {
+      "emailRequired": "Email is required",
+      "emailInvalid": "Please enter a valid email address",
+      "subjectRequired": "Subject is required",
+      "subjectMinLength": "Subject must be at least 3 characters",
+      "subjectMaxLength": "Subject must be less than 100 characters",
+      "messageRequired": "Message is required",
+      "messageMinLength": "Message must be at least 10 characters",
+      "messageMaxLength": "Message must be less than 1000 characters"
+    },
+    "labels": {
+      "email": "Email",
+      "phone": "Phone",
+      "whatsapp": "WhatsApp",
+      "linkedin": "LinkedIn",
+      "github": "GitHub"
+    },
+    "buttons": {
+      "send": "Send Message",
+      "sending": "Sending...",
+      "social": {
+        "openEmail": "Opening email client...",
+        "openPhone": "Opening phone...",
+        "openWhatsapp": "Opening WhatsApp...",
+        "openLinkedin": "Opening LinkedIn...",
+        "openGithub": "Opening GitHub..."
+      }
+    }
+  },
+  "toast": {
+    "emailSent": "✅ Email sent successfully!",
+    "emailError": "❌ Failed to send email. Please try again.",
+    "cvDownloadSuccess": "✅ {{fileName}} downloaded successfully!",
+    "cvDownloadError": "❌ Failed to download CV. Please try again.",
+    "formValidationError": "⚠️ Please fill in all required fields correctly.",
+    "networkError": "🌐 Network error. Please check your connection.",
+    "unexpectedError": "💥 An unexpected error occurred. Please try again."
+  },
+  "footer": {
+    "copyright": "© {{year}} Joel Carrasco.",
+    "madeWith": "Made with Vite & React",
+    "logoAlt": "Joel Carrasco Logo"
+  }
+}
