@@ -17,29 +17,27 @@ const LanguageSwitcher = () => {
   };
 
   const USFlag = () => {
-    const colors = t('language.flags.us.colors');
     return (
-      <svg width="24" height="16" viewBox="0 0 24 16" className="rounded-sm" aria-label={t('language.flags.us.alt')}>
-        <rect width="24" height="16" fill={colors.stripes}/>
-        <rect width="24" height="1.23" y="1.23" fill={colors.white}/>
-        <rect width="24" height="1.23" y="3.69" fill={colors.white}/>
-        <rect width="24" height="1.23" y="6.15" fill={colors.white}/>
-        <rect width="24" height="1.23" y="8.62" fill={colors.white}/>
-        <rect width="24" height="1.23" y="11.08" fill={colors.white}/>
-        <rect width="24" height="1.23" y="13.54" fill={colors.white}/>
-        <rect width="9.6" height="8.62" fill={colors.stars}/>
+      <svg width="24" height="16" viewBox="0 0 24 16" className="rounded-sm" aria-label="United States Flag">
+        <rect width="24" height="16" fill="#B22234"/>
+        <rect width="24" height="1.23" y="1.23" fill="#FFFFFF"/>
+        <rect width="24" height="1.23" y="3.69" fill="#FFFFFF"/>
+        <rect width="24" height="1.23" y="6.15" fill="#FFFFFF"/>
+        <rect width="24" height="1.23" y="8.62" fill="#FFFFFF"/>
+        <rect width="24" height="1.23" y="11.08" fill="#FFFFFF"/>
+        <rect width="24" height="1.23" y="13.54" fill="#FFFFFF"/>
+        <rect width="9.6" height="8.62" fill="#3C3B6E"/>
       </svg>
     );
   };
 
   const SpainFlag = () => {
-    const colors = t('language.flags.spain.colors');
     return (
-      <svg width="24" height="16" viewBox="0 0 24 16" className="rounded-sm" aria-label={t('language.flags.spain.alt')}>
-        <rect width="24" height="4" fill={colors.red}/>
-        <rect width="24" height="8" y="4" fill={colors.yellow}/>
-        <rect width="24" height="4" y="12" fill={colors.red}/>
-        <rect x="6" y="6" width="4" height="4" fill={colors.red} rx="0.5"/>
+      <svg width="24" height="16" viewBox="0 0 24 16" className="rounded-sm" aria-label="Spanish Flag">
+        <rect width="24" height="4" fill="#AA151B"/>
+        <rect width="24" height="8" y="4" fill="#F1BF00"/>
+        <rect width="24" height="4" y="12" fill="#AA151B"/>
+        <rect x="6" y="6" width="4" height="4" fill="#AA151B" rx="0.5"/>
       </svg>
     );
   };
