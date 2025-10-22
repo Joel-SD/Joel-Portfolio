@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useToast } from '../../hooks/useToast';
+import { portfolioData } from '../../data/portfolioData';
 import LanguageSwitcher from '../ui/LanguageSwitcher';
 
 const Header = () => {
@@ -18,6 +19,19 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
 
   // Smooth scroll to section
   const scrollToSection = (sectionId) => {
@@ -158,6 +172,30 @@ const Header = () => {
           isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
         }`}>
         <div className="container mx-auto flex flex-col items-center h-screen px-4 py-6 space-y-0">
+          {/* Close button at the top */}
+          <div className="w-full flex justify-end mb-4">
+            <button
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] p-2 transition-colors"
+              aria-label="Close menu"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-8 w-8"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+
           {navLinks.map((link, index) => (
             <button
               key={link.name}

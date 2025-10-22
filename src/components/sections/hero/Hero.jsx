@@ -13,8 +13,8 @@ const Hero = () => {
   const breakpoint = useBreakpoint();
 
   const socialIcons = [
-    { id: 1, Icon: SiGithub },
-    { id: 2, Icon: SiLinkedin },
+    { id: 1, Icon: SiGithub, url: personalInfo.socialLinks.find(link => link.name === 'github')?.url, label: 'GitHub' },
+    { id: 2, Icon: SiLinkedin, url: personalInfo.socialLinks.find(link => link.name === 'linkedin')?.url, label: 'LinkedIn' },
   ];
 
   return (
@@ -45,8 +45,17 @@ const Hero = () => {
           </p>
 
           <div className="flex gap-4">
-            {socialIcons.map(({ id, Icon }) => (
-              <Icon key={id} size={44} />
+            {socialIcons.map(({ id, Icon, url, label }) => (
+              <a
+                key={id}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="text-[var(--text-primary)] hover:text-[var(--color-primary)] transition-colors duration-300 hover:scale-110 transform"
+              >
+                <Icon size={44} />
+              </a>
             ))}
           </div>
         </div>
