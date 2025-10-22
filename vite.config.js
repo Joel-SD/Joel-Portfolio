@@ -6,7 +6,8 @@ export default defineConfig({
   plugins: [react()],
   // Configuración para GitHub Pages
   // Si usas un dominio personalizado, comenta la siguiente línea o déjala como '/'
-  base: '/Joel-Portfolio/',
+  // Use root base when deploying to a custom domain (Porkbun) so assets load from '/'
+  base: '/',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
