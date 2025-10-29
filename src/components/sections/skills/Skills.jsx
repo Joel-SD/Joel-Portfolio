@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
 import {
   SiJavascript,
   SiTypescript,
@@ -19,6 +20,13 @@ import {
 import { VscAzure } from 'react-icons/vsc';
 import { FaGitAlt, FaJava } from 'react-icons/fa';
 import { portfolioData } from '../../../data/portfolioData';
+import {
+  fadeInUp,
+  scaleInBounce,
+  staggerContainer,
+  staggerItem,
+  defaultViewport
+} from '../../../utils/animations';
 
 export default function Skills() {
   const { t } = useTranslation();
@@ -41,24 +49,42 @@ export default function Skills() {
     >
       <div className="w-full max-w-[var(--max-width-sections)] flex flex-col items-center">
         {/* Título */}
-        <div className="text-center mb-12">
+        <motion.div 
+          className="text-center mb-12"
+          initial="hidden"
+          whileInView="visible"
+          viewport={defaultViewport}
+          variants={fadeInUp}
+        >
           <h2 className="text-[length:var(--font-size-4xl)] md:text-[length:var(--font-size-5xl)] font-bold text-[var(--text-primary)] mb-4">
             {t('sections.skills')} <span className="text-[var(--color-neutral)]">Skills</span>
           </h2>
           <p className="text-[length:var(--font-size-p2)] text-[var(--color-neutral)] max-w-2xl mx-auto">
             {t('skills.description')}
           </p>
-        </div>
+        </motion.div>
 
         {/* Grid de Skills con diseño moderno */}
         <div className="w-full max-w-6xl">
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-4 md:gap-6">
+          <motion.div 
+            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-4 md:gap-6"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={defaultViewport}
+          >
             {technologies.map((tech, index) => {
               const IconComponent = getIconComponent(tech.icon);
               return (
-                <div
+                <motion.div
                   key={`${tech.label}-${index}`}
                   className="group relative bg-white border-2 border-[var(--gray-100)] rounded-2xl p-4 md:p-6 flex flex-col items-center justify-center transition-all duration-500 ease-out hover:border-[var(--color-black)] hover:shadow-2xl hover:shadow-black/10 cursor-pointer overflow-hidden"
+                  variants={staggerItem}
+                  whileHover={{
+                    scale: 1.1,
+                    y: -5,
+                    transition: { duration: 0.3 }
+                  }}
                 >
                   {/* Background gradient hover effect */}
                   <div className="absolute inset-0 bg-gradient-to-br from-[var(--gray-50)] via-white to-[var(--gray-50)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"></div>
@@ -80,9 +106,9 @@ export default function Skills() {
 
                   {/* Shine effect */}
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out opacity-0 group-hover:opacity-100"></div>
-                </div>
+                </motion.div>
               )})}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

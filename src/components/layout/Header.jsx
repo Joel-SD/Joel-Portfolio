@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useToast } from '../../hooks/useToast';
 import LanguageSwitcher from '../ui/LanguageSwitcher';
+import {
+  fadeInDown,
+  staggerContainer,
+  staggerItem,
+  buttonHover,
+  buttonTap
+} from '../../utils/animations';
 
 const Header = () => {
   const { t, i18n } = useTranslation();
@@ -21,15 +29,23 @@ const Header = () => {
 
   // Smooth scroll to section
   const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const headerHeight = 80; // Approximate header height
-      const elementPosition = element.offsetTop - headerHeight;
-      
+    if (sectionId === 'hero') {
+      // Scroll to top
       window.scrollTo({
-        top: elementPosition,
+        top: 0,
         behavior: 'smooth'
       });
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const headerHeight = 80; // Approximate header height
+        const elementPosition = element.offsetTop - headerHeight;
+        
+        window.scrollTo({
+          top: elementPosition,
+          behavior: 'smooth'
+        });
+      }
     }
     setIsMobileMenuOpen(false);
   };
@@ -88,38 +104,56 @@ const Header = () => {
   ];
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 p-4 ${
-      isScrolled 
-        ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200/20' 
-        : 'bg-transparent'
-    }`}>
+    <motion.header 
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 p-4 ${
+        isScrolled 
+          ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200/20' 
+          : 'bg-transparent'
+      }`}
+      initial="hidden"
+      animate="visible"
+      variants={fadeInDown}
+    >
       <div className="container mx-auto flex justify-between items-center">
-        <button 
+        <motion.button 
           onClick={() => scrollToSection('hero')} 
           className="text-[var(--text-primary)] font-display font-bold text-[length:var(--font-size-xl)] hover:text-[var(--text-secondary)] transition-colors"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
         >
           Joel Carrasco
-        </button>
+        </motion.button>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
+        <motion.nav 
+          className="hidden md:flex items-center space-x-8"
+          variants={staggerContainer}
+          initial="hidden"
+          animate="visible"
+        >
           {navLinks.map((link) => (
-            <button
+            <motion.button
               key={link.name}
               onClick={link.action}
               className="inline-block text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors min-w-fit cursor-pointer"
+              variants={staggerItem}
+              whileHover={buttonHover}
+              whileTap={buttonTap}
             >
               {link.name}
-            </button>
+            </motion.button>
           ))}
 
           <LanguageSwitcher />
-        </nav>
+        </motion.nav>
 
         {/* Mobile menu button */}
-        <button
+        <motion.button
           className="md:hidden text-[var(--text-secondary)]"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
           {isMobileMenuOpen ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -149,61 +183,70 @@ const Header = () => {
               />
             </svg>
           )}
-        </button>
+        </motion.button>
       </div>
 
       {/* Mobile Navigation */}
-      <div
-        className={`bg-white md:hidden bg-background fixed left-0 w-full top-0 transition-all duration-300 ${
-          isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
-        }`}>
-        <div className="container mx-auto flex flex-col items-center h-screen px-4 py-6 space-y-0">
-          {navLinks.map((link, index) => (
-            <button
-              key={link.name}
-              onClick={link.action}
-              className={`text-[var(--text-secondary)] hover:text-[var(--text-primary)] w-full text-center py-4 transition-all duration-300 cursor-pointer
-                ${
-                  isMobileMenuOpen
-                    ? 'translate-y-0 opacity-100'
-                    : 'translate-y-10 opacity-0'
-                }
-              `}
-              style={{
-                transitionDelay: isMobileMenuOpen ? `${index * 50}ms` : '0ms',
-                transform: isMobileMenuOpen
-                  ? 'translateY(0)'
-                  : 'translateY(-20px)',
-                opacity: isMobileMenuOpen ? 1 : 0,
-              }}
-            >
-              {link.name}
-            </button>
-          ))}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            className="bg-white md:hidden bg-background fixed left-0 w-full top-0"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+          >            <div className="container mx-auto flex flex-col items-center h-screen px-4 py-6 space-y-0 justify-between">
+              {/* Contenido del menú */}
+              <div className="flex-1 flex flex-col items-center  w-full space-y-0">
+                {navLinks.map((link, index) => (
+                  <motion.button
+                    key={link.name}
+                    onClick={link.action}
+                    className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] w-full text-center py-4 transition-all duration-300 cursor-pointer"
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ delay: index * 0.05 }}
+                    whileHover={buttonHover}
+                    whileTap={buttonTap}
+                  >
+                    {link.name}
+                  </motion.button>
+                ))}
 
-          {/* Mobile Language Switcher */}
-          <div
-            className={`pt-4 transition-all duration-300
-            ${
-              isMobileMenuOpen
-                ? 'translate-y-0 opacity-100'
-                : 'translate-y-10 opacity-0'
-            }
-          `}
-            style={{
-              transitionDelay: isMobileMenuOpen
-                ? `${(navLinks.length + 1) * 50}ms`
-                : '0ms',
-              transform: isMobileMenuOpen
-                ? 'translateY(0)'
-                : 'translateY(-20px)',
-              opacity: isMobileMenuOpen ? 1 : 0,
-            }}>
-            <LanguageSwitcher />
-          </div>
-        </div>
-      </div>
-    </header>
+                {/* Mobile Language Switcher */}
+                <motion.div
+                  className="pt-4"
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ delay: navLinks.length * 0.05 }}
+                >
+                  <LanguageSwitcher />
+                </motion.div>
+              </div>
+
+              {/* Close button at the bottom */}
+              <div className="w-full flex justify-center pb-8">
+                <motion.button
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] px-8 py-3 transition-colors bg-[var(--gray-100)] rounded-full font-medium text-base"
+                  aria-label="Close menu"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 20 }}
+                  transition={{ delay: (navLinks.length + 1) * 0.05 }}
+                >
+                  {currentLang === 'en' ? 'Close' : 'Cerrar'}
+                </motion.button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.header>
   );
 };
 
