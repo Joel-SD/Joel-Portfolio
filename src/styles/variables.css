@@ -9,7 +9,7 @@
   /* Color system for text */
   --text-primary: #000000;    /* Para títulos y texto principal */
   --text-secondary: #404040;  /* Para subtítulos y texto importante */
-  --text-muted: #6b7280;     /* Para texto descriptivo y secundario */
+  --text-muted: #919191;     /* Para texto descriptivo y secundario */
   --text-error: #ef4444;     /* Para mensajes de error */
   
   /* Otros colores del sistema */

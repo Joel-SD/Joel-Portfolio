@@ -1,9 +1,23 @@
 import React, { useState, useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaWhatsapp, FaPaperPlane, FaSpinner } from 'react-icons/fa';
 import { useToast } from '../../../hooks/useToast';
 import emailService from '../../../services/emailService';
+import {
+  fadeInUp,
+  fadeInLeft,
+  fadeInRight,
+  formFieldAnimation,
+  staggerContainer,
+  staggerItem,
+  buttonHover,
+  buttonTap,
+  iconButtonHover,
+  iconButtonTap,
+  defaultViewport
+} from '../../../utils/animations';
 
 // Contact methods configuration
 const getContactMethods = (t) => ({
@@ -279,7 +293,13 @@ export default function ContactMe() {
       <div className="w-full max-w-[var(--max-width-sections)] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Contact Form */}
-          <div className="w-full">
+          <motion.div 
+            className="w-full"
+            initial="hidden"
+            whileInView="visible"
+            viewport={defaultViewport}
+            variants={fadeInLeft}
+          >
             <div className="mb-8">
               <h2 className="text-[length:var(--font-size-3xl)] lg:text-[length:var(--font-size-4xl)] font-bold text-[var(--text-primary)] mb-4">
                 {t('contact.formTitle')}
@@ -289,47 +309,64 @@ export default function ContactMe() {
               </p>
             </div>
 
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" noValidate>
-              <FormInput
-                name="email"
-                type="email"
-                placeholder={t('contact.form.emailPlaceholder')}
-                aria-label={t('contact.labels.email')}
-                autoComplete="email"
-                errors={errors}
-                touchedFields={touchedFields}
-                watch={watch}
-                getValidationRules={getValidationRules}
-                register={register}
-              />
+            <motion.form 
+              onSubmit={handleSubmit(onSubmit)} 
+              className="space-y-6" 
+              noValidate
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={defaultViewport}
+            >
+              <motion.div variants={staggerItem}>
+                <FormInput
+                  name="email"
+                  type="email"
+                  placeholder={t('contact.form.emailPlaceholder')}
+                  aria-label={t('contact.labels.email')}
+                  autoComplete="email"
+                  errors={errors}
+                  touchedFields={touchedFields}
+                  watch={watch}
+                  getValidationRules={getValidationRules}
+                  register={register}
+                />
+              </motion.div>
               
-              <FormInput
-                name="subject"
-                placeholder={t('contact.form.subjectPlaceholder')}
-                aria-label={t('contact.form.subjectPlaceholder')}
-                errors={errors}
-                touchedFields={touchedFields}
-                watch={watch}
-                getValidationRules={getValidationRules}
-                register={register}
-              />
+              <motion.div variants={staggerItem}>
+                <FormInput
+                  name="subject"
+                  placeholder={t('contact.form.subjectPlaceholder')}
+                  aria-label={t('contact.form.subjectPlaceholder')}
+                  errors={errors}
+                  touchedFields={touchedFields}
+                  watch={watch}
+                  getValidationRules={getValidationRules}
+                  register={register}
+                />
+              </motion.div>
               
-              <FormInput
-                name="message"
-                placeholder={t('contact.form.messagePlaceholder')}
-                multiline
-                aria-label={t('contact.form.messagePlaceholder')}
-                errors={errors}
-                touchedFields={touchedFields}
-                watch={watch}
-                getValidationRules={getValidationRules}
-                register={register}
-              />
+              <motion.div variants={staggerItem}>
+                <FormInput
+                  name="message"
+                  placeholder={t('contact.form.messagePlaceholder')}
+                  multiline
+                  aria-label={t('contact.form.messagePlaceholder')}
+                  errors={errors}
+                  touchedFields={touchedFields}
+                  watch={watch}
+                  getValidationRules={getValidationRules}
+                  register={register}
+                />
+              </motion.div>
 
               {/* Form actions - Button with social icons */}
-              <div className="flex items-center justify-between">
+              <motion.div 
+                className="flex items-center justify-between"
+                variants={staggerItem}
+              >
                 {/* Submit Button - Smaller size */}
-                <button 
+                <motion.button 
                   type="submit" 
                   disabled={!isValid || isSubmitting}
                   className={`
@@ -339,10 +376,12 @@ export default function ContactMe() {
                       ? 'bg-gray-400 cursor-not-allowed text-white' 
                       : !isValid
                         ? 'bg-gray-300 cursor-not-allowed text-gray-500'
-                        : 'bg-[var(--color-black)] hover:bg-[var(--gray-800)] text-white transform hover:scale-[1.02] hover:shadow-lg'
+                        : 'bg-[var(--color-black)] hover:bg-[var(--gray-800)] text-white transform hover:shadow-lg'
                     }
                   `}
                   aria-label="Send message"
+                  whileHover={!isSubmitting && isValid ? buttonHover : {}}
+                  whileTap={!isSubmitting && isValid ? buttonTap : {}}
                 >
                   {isSubmitting ? (
                     <>
@@ -355,15 +394,21 @@ export default function ContactMe() {
                       <span>{t('contact.buttons.send')}</span>
                     </>
                   )}
-                </button>
+                </motion.button>
 
                 
-              </div>
-            </form>
-          </div>
+              </motion.div>
+            </motion.form>
+          </motion.div>
 
           {/* Contact Information */}
-          <div className="w-full">
+          <motion.div 
+            className="w-full"
+            initial="hidden"
+            whileInView="visible"
+            viewport={defaultViewport}
+            variants={fadeInRight}
+          >
             <div className="mb-8">
               <h2 className="text-3xl lg:text-4xl font-bold text-[var(--text-primary)] mb-4 leading-tight">
                 {t('contact.letsTalk')} <span className="bg-[var(--color-black)] text-white px-2 py-1">{t('contact.talkHighlight')}</span> {t('contact.talkFor')}
@@ -396,54 +441,72 @@ export default function ContactMe() {
                 </p>
               </div>
               {/* Social Icons - Same row as button */}
-            <div className="flex gap-2">
-              <div 
+            <motion.div 
+              className="flex gap-2"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={defaultViewport}
+            >
+              <motion.div 
                 onClick={() => handleContactClick('github')}
-                className="w-10 h-10 bg-[var(--color-black)] flex items-center justify-center cursor-pointer transition-all duration-200 hover:bg-[var(--gray-800)] hover:scale-105 rounded-lg"
+                className="w-10 h-10 bg-[var(--color-black)] flex items-center justify-center cursor-pointer transition-all duration-200 hover:bg-[var(--gray-800)] rounded-lg"
                 role="button"
                 tabIndex={0}
                 onKeyDown={(e) => e.key === 'Enter' && handleContactClick('github')}
                 aria-label="GitHub"
+                variants={staggerItem}
+                whileHover={iconButtonHover}
+                whileTap={iconButtonTap}
               >
                 <FaGithub className="text-white text-sm" />
-              </div>
+              </motion.div>
               
-              <div 
+              <motion.div 
                 onClick={() => handleContactClick('linkedin')}
-                className="w-10 h-10 bg-[var(--color-black)] flex items-center justify-center cursor-pointer transition-all duration-200 hover:bg-[var(--gray-800)] hover:scale-105 rounded-lg"
+                className="w-10 h-10 bg-[var(--color-black)] flex items-center justify-center cursor-pointer transition-all duration-200 hover:bg-[var(--gray-800)] rounded-lg"
                 role="button"
                 tabIndex={0}
                 onKeyDown={(e) => e.key === 'Enter' && handleContactClick('linkedin')}
                 aria-label="LinkedIn"
+                variants={staggerItem}
+                whileHover={iconButtonHover}
+                whileTap={iconButtonTap}
               >
                 <FaLinkedin className="text-white text-sm" />
-              </div>
+              </motion.div>
               
-              <div 
+              <motion.div 
                 onClick={() => handleContactClick('email')}
-                className="w-10 h-10 bg-[var(--color-black)] flex items-center justify-center cursor-pointer transition-all duration-200 hover:bg-[var(--gray-800)] hover:scale-105 rounded-lg"
+                className="w-10 h-10 bg-[var(--color-black)] flex items-center justify-center cursor-pointer transition-all duration-200 hover:bg-[var(--gray-800)] rounded-lg"
                 role="button"
                 tabIndex={0}
                 onKeyDown={(e) => e.key === 'Enter' && handleContactClick('email')}
                 aria-label="Email"
+                variants={staggerItem}
+                whileHover={iconButtonHover}
+                whileTap={iconButtonTap}
               >
                 <FaEnvelope className="text-white text-sm" />
-              </div>
+              </motion.div>
               
-              <div 
+              <motion.div 
                 onClick={() => handleContactClick('whatsapp')}
-                className="w-10 h-10 bg-[var(--color-black)] flex items-center justify-center cursor-pointer transition-all duration-200 hover:bg-[var(--gray-800)] hover:scale-105 rounded-lg"
+                className="w-10 h-10 bg-[var(--color-black)] flex items-center justify-center cursor-pointer transition-all duration-200 hover:bg-[var(--gray-800)] rounded-lg"
                 role="button"
                 tabIndex={0}
                 onKeyDown={(e) => e.key === 'Enter' && handleContactClick('whatsapp')}
                 aria-label="WhatsApp"
+                variants={staggerItem}
+                whileHover={iconButtonHover}
+                whileTap={iconButtonTap}
               >
                 <FaWhatsapp className="text-white text-sm" />
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
             </div>
             
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

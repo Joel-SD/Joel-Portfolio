@@ -1,6 +1,17 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
 import { portfolioData } from '../../../data/portfolioData';
+import {
+  fadeInUp,
+  fadeInLeft,
+  staggerContainer,
+  staggerItem,
+  scaleIn,
+  buttonHover,
+  cardHover,
+  defaultViewport
+} from '../../../utils/animations';
 
 export default function MyExperience() {
   const { t, i18n } = useTranslation();
@@ -18,12 +29,18 @@ export default function MyExperience() {
     <section id='experience' className="w-full bg-[var(--color-black)] text-white py-16 px-4">
       <div className="w-full max-w-[var(--max-width-sections)] mx-auto">
         {/* Título */}
-        <div className="text-center mb-12">
+        <motion.div 
+          className="text-center mb-12"
+          initial="hidden"
+          whileInView="visible"
+          viewport={defaultViewport}
+          variants={fadeInUp}
+        >
           <h2 className="text-[length:var(--font-size-h2)] md:text-[length:var(--font-size-h1)] font-bold text-white mb-4">
             {t('sections.experience')}
           </h2>
           <div className="w-20 h-1 bg-white mx-auto rounded-full"></div>
-        </div>
+        </motion.div>
 
         {/* Timeline Container */}
         <div className="relative">
@@ -31,11 +48,18 @@ export default function MyExperience() {
           <div className="absolute left-1/2 md:left-8 transform -translate-x-1/2 md:translate-x-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-gray-300 via-gray-400 to-gray-500"></div>
 
           {/* Experience Items */}
-          <div className="space-y-12 md:space-y-16">
+          <motion.div 
+            className="space-y-12 md:space-y-16"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={defaultViewport}
+          >
             {experience.map((exp, index) => (
-              <div
+              <motion.div
                 key={index}
                 className="relative group"
+                variants={staggerItem}
               >
                 {/* Timeline Dot - Visible on all screen sizes */}
                 <div className="absolute left-1/2 md:left-6 transform -translate-x-1/2 md:translate-x-0 w-4 h-4 bg-white rounded-full border-4 border-[var(--color-black)] z-10 group-hover:bg-gray-200 transition-all duration-300"></div>
@@ -107,9 +131,9 @@ export default function MyExperience() {
                     </div>
                   )}
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

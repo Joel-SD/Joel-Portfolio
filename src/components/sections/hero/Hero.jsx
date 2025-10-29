@@ -1,10 +1,21 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
 import { portfolioData } from '../../../data/portfolioData';
 import BoySVG from '../../ui/icons/BoySVG';
 import '../../../index.css';
 import { SiGithub, SiLinkedin } from 'react-icons/si';
 import { useBreakpoint } from '../../../hooks/useBreakpoint';
+import { 
+  heroAnimation, 
+  fadeInLeft, 
+  imageReveal, 
+  staggerContainer, 
+  staggerItem,
+  iconButtonHover,
+  iconButtonTap,
+  defaultViewport
+} from '../../../utils/animations';
 
 const Hero = () => {
   const { t, i18n } = useTranslation();
@@ -18,15 +29,31 @@ const Hero = () => {
   ];
 
   return (
-    <section id="about" className="p-4  max-w-[var(--max-width-sections)]">
+    <motion.section 
+      id="hero" 
+      className="p-4  max-w-[var(--max-width-sections)]"
+      initial="hidden"
+      animate="visible"
+      variants={heroAnimation}
+    >
       <div className="flex flex-col md:flex-row-reverse items-center gap-12">
-        <div className="flex justify-center">
+        <motion.div 
+          className="flex justify-center"
+          variants={imageReveal}
+          initial="hidden"
+          animate="visible"
+        >
           <BoySVG
             width={breakpoint === 'sm' ? 470 : null}
             height={breakpoint === 'sm' ? 500 : null}
           />
-        </div>
-        <div className="flex flex-col gap-4 text-[length:var(--font-size-3xl)] md:text-[length:var(--font-size-5xl)]">
+        </motion.div>
+        <motion.div 
+          className="flex flex-col gap-4 text-[length:var(--font-size-3xl)] md:text-[length:var(--font-size-5xl)]"
+          variants={fadeInLeft}
+          initial="hidden"
+          animate="visible"
+        >
           <div className="flex flex-col gap-2">
             <p>
               {t('hero.greeting')}{' '}
@@ -44,23 +71,31 @@ const Hero = () => {
             {personalInfo.bio[currentLang]}
           </p>
 
-          <div className="flex gap-4">
+          <motion.div 
+            className="flex gap-4"
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+          >
             {socialIcons.map(({ id, Icon, url, label }) => (
-              <a
+              <motion.a
                 key={id}
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="text-[var(--text-primary)] hover:text-[var(--color-primary)] transition-colors duration-300 hover:scale-110 transform"
+                className="text-[var(--text-primary)] hover:text-[var(--color-primary)] transition-colors duration-300"
+                variants={staggerItem}
+                whileHover={iconButtonHover}
+                whileTap={iconButtonTap}
               >
                 <Icon size={44} />
-              </a>
+              </motion.a>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
