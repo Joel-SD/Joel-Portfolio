@@ -24,8 +24,8 @@ const Hero = () => {
   const breakpoint = useBreakpoint();
 
   const socialIcons = [
-    { id: 1, Icon: SiGithub },
-    { id: 2, Icon: SiLinkedin },
+    { id: 1, Icon: SiGithub, url: personalInfo.socialLinks.find(link => link.name === 'github')?.url, label: 'GitHub' },
+    { id: 2, Icon: SiLinkedin, url: personalInfo.socialLinks.find(link => link.name === 'linkedin')?.url, label: 'LinkedIn' },
   ];
 
   return (

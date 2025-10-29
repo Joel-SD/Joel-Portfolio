@@ -85,7 +85,7 @@ dist
 
 # Gatsby files
 .cache/
-public
+# public  # Commented out - In Vite, public is for static assets
 
 # Storybook build outputs
 .out
