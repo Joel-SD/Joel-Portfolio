@@ -158,37 +158,6 @@ export const portfolioData = {
     fileName: 'Joel Carrasco Resume.pdf'
   },
 
-  projects: [
-    {
-      title: {
-        en: 'E-commerce Platform',
-        es: 'Plataforma de Comercio Electrónico',
-      },
-      description: {
-        en: 'A full-featured e-commerce platform built with React, Node.js, and MongoDB.',
-        es: 'Una plataforma de comercio electrónico completa construida con React, Node.js y MongoDB.',
-      },
-      technologies: ['React', 'Node.js', 'MongoDB', 'Express'],
-      imageUrl: '/path/to/image.jpg',
-      githubUrl: 'https://github.com/yourusername/project1',
-      liveUrl: 'https://project1.com',
-    },
-    {
-      title: {
-        en: 'Task Management App',
-        es: 'Aplicación de Gestión de Tareas',
-      },
-      description: {
-        en: 'A productivity tool for managing tasks and projects with collaborative features.',
-        es: 'Una herramienta de productividad para gestionar tareas y proyectos con características colaborativas.',
-      },
-      technologies: ['React', 'Firebase', 'Tailwind CSS'],
-      imageUrl: '/path/to/image.jpg',
-      githubUrl: 'https://github.com/yourusername/project2',
-      liveUrl: 'https://project2.com',
-    },
-  ],
-
   contact: {
     email: 'joelcarrasco.sd@gmail.com',
     phone: '+507 62575381',

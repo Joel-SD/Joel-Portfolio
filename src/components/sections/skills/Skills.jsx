@@ -66,7 +66,7 @@ export default function Skills() {
           variants={fadeInUp}
         >
           <h2 className="text-[length:var(--font-size-4xl)] md:text-[length:var(--font-size-5xl)] font-bold text-[var(--text-primary)] mb-4">
-            {t('sections.skills')} <span className="text-[var(--color-neutral)]">Skills</span>
+            {t('header.skills')}
           </h2>
           <p className="text-[length:var(--font-size-p2)] text-[var(--color-neutral)] max-w-2xl mx-auto">
             {t('skills.description')}

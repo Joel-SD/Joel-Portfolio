@@ -5,13 +5,19 @@
     "aboutMe": "Sobre Mí",
     "experience": "Experiencia",
     "contact": "Contáctame",
-    "resume": "Currículum"
+    "resume": "Currículum",
+    "close": "Cerrar",
+    "closeMenu": "Cerrar menú"
   },
   "hero": {
     "greeting": "Hola soy",
     "title": "Ingeniero de Software",
     "location": "Ubicado en",
     "bio": "Ingeniero de Software Senior con 5 años de experiencia en sistemas complejos de extremo a extremo."
+  },
+  "about": {
+    "title": "Sobre",
+    "highlight": "Mí"
   },
   "sections": {
     "skills": "Mis",
@@ -76,10 +82,15 @@
       "subjectPlaceholder": "Asunto *",
       "websitePlaceholder": "https://tusitio.com (opcional)",
       "messagePlaceholder": "Cuéntame sobre tu proyecto... *",
+      "subjectLabel": "Asunto",
+      "messageLabel": "Mensaje",
       "sending": "Enviando...",
       "sendMessage": "Enviar Mensaje",
       "successMessage": "¡Gracias! Tu mensaje ha sido enviado exitosamente.",
       "errorMessage": "Algo salió mal. Por favor intenta de nuevo."
+    },
+    "toast": {
+      "emailClientOpened": "Cliente de correo abierto. Por favor envía el correo desde tu aplicación de email."
     },
     "validation": {
       "emailRequired": "El email es requerido",

@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaWhatsapp, FaPaperPlane, FaSpinner } from 'react-icons/fa';
 import { useToast } from '../../../hooks/useToast';
 import emailService from '../../../services/emailService';
+import { portfolioData } from '../../../data/portfolioData';
 import {
   fadeInUp,
   fadeInLeft,
@@ -20,11 +21,17 @@ import {
 } from '../../../utils/animations';
 
 // Contact methods configuration
-const getContactMethods = (t) => ({
+const getContactMethods = (t) => {
+  const { contact, personalInfo } = portfolioData;
+  const socialLinks = personalInfo.socialLinks;
+
+  const getSocialUrl = (name) => socialLinks.find((link) => link.name === name)?.url || '';
+
+  return {
   email: {
     icon: FaEnvelope,
     label: t('contact.labels.email'),
-    value: 'joelcarrasco.sd@gmail.com',
+    value: contact.email,
     action: (value) => `mailto:${value}`,
     hoverColor: 'hover:bg-blue-600',
     toastMessage: t('contact.buttons.social.openEmail')
@@ -32,7 +39,7 @@ const getContactMethods = (t) => ({
   phone: {
     icon: FaPhone,
     label: t('contact.labels.phone'),
-    value: '+507 62575381',
+    value: contact.phone,
     action: (value) => `tel:${value}`,
     hoverColor: 'hover:bg-green-600',
     toastMessage: t('contact.buttons.social.openPhone')
@@ -40,7 +47,7 @@ const getContactMethods = (t) => ({
   whatsapp: {
     icon: FaWhatsapp,
     label: t('contact.labels.whatsapp'),
-    value: '+507 62575381',
+    value: contact.phone,
     action: (value) => `https://wa.me/${value.replace(/[^0-9]/g, '')}`,
     hoverColor: 'hover:bg-green-500',
     external: true,
@@ -50,7 +57,7 @@ const getContactMethods = (t) => ({
     icon: FaLinkedin,
     label: t('contact.labels.linkedin'),
     value: 'Joel Carrasco',
-    action: () => 'https://www.linkedin.com/in/joel-carrasco-cubilla',
+    action: () => getSocialUrl('linkedin'),
     hoverColor: 'hover:bg-blue-700',
     external: true,
     toastMessage: t('contact.buttons.social.openLinkedin')
@@ -59,12 +66,13 @@ const getContactMethods = (t) => ({
     icon: FaGithub,
     label: t('contact.labels.github'),
     value: 'Joel-SD',
-    action: () => 'https://github.com/Joel-SD',
+    action: () => getSocialUrl('github'),
     hoverColor: 'hover:bg-gray-800',
     external: true,
     toastMessage: t('contact.buttons.social.openGithub')
   },
-});
+  };
+};
 
 // Enhanced Input component with better color management and less aggressive validation
 const FormInput = ({ name, type = 'text', placeholder, multiline = false, errors, touchedFields, watch, getValidationRules, register, ...props }) => {
@@ -179,7 +187,7 @@ export default function ContactMe() {
     
     // Show loading toast
     const loadingToastId = toast.showLoading(
-      t('contact.form.sending') || 'Sending message...'
+      t('contact.form.sending')
     );
 
     try {
@@ -196,16 +204,16 @@ export default function ContactMe() {
         
         // Fallback to mailto if EmailJS is not configured
         const emailBody = encodeURIComponent(
-          `Email: ${data.email}\n` +
-          `Subject: ${data.subject}\n\n` +
-          `Message:\n${data.message}`
+          `${t('contact.labels.email')}: ${data.email}\n` +
+          `${t('contact.form.subjectLabel')}: ${data.subject}\n\n` +
+          `${t('contact.form.messageLabel')}:\n${data.message}`
         );
         
         const mailtoLink = `mailto:${contactMethods.email.value}?subject=${encodeURIComponent(data.subject)}&body=${emailBody}`;
         window.location.href = mailtoLink;
         
         toast.updateToast(loadingToastId, 
-          'Email client opened. Please send the email from your email application.', 
+          t('contact.toast.emailClientOpened'), 
           'info'
         );
         reset();

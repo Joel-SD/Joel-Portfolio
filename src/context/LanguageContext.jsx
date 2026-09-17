@@ -1,37 +1,40 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
 export const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
   const { i18n } = useTranslation();
-  const [currentLanguage, setCurrentLanguage] = useState(i18n.language || 'en');
 
-  const changeLanguage = (language) => {
+  const getInitialLanguage = () => {
+    const saved = localStorage.getItem('preferredLanguage');
+    if (saved) return saved;
+    const browserLang = navigator.language || navigator.userLanguage;
+    return browserLang.startsWith('es') ? 'es' : 'en';
+  };
+
+  const [currentLanguage, setCurrentLanguage] = useState(getInitialLanguage);
+
+  const changeLanguage = useCallback((language) => {
     i18n.changeLanguage(language);
     setCurrentLanguage(language);
     localStorage.setItem('preferredLanguage', language);
-  };
+  }, [i18n]);
 
   useEffect(() => {
-    // Verificar si hay un idioma guardado en localStorage
     const savedLanguage = localStorage.getItem('preferredLanguage');
-    
+
     if (savedLanguage && savedLanguage !== currentLanguage) {
-      // Si hay un idioma guardado, usarlo
       changeLanguage(savedLanguage);
     } else if (!savedLanguage) {
-      // Si no hay idioma guardado, detectar del navegador
       const browserLanguage = navigator.language || navigator.userLanguage;
       const detectedLanguage = browserLanguage.startsWith('es') ? 'es' : 'en';
-      
-      // Solo cambiar si es diferente al actual
+
       if (detectedLanguage !== currentLanguage) {
         changeLanguage(detectedLanguage);
       }
     }
 
-    // Escuchar cambios de idioma de i18next
     const handleLanguageChange = (language) => {
       setCurrentLanguage(language);
     };
@@ -41,7 +44,7 @@ export const LanguageProvider = ({ children }) => {
     return () => {
       i18n.off('languageChanged', handleLanguageChange);
     };
-  }, [i18n, currentLanguage]);
+  }, [i18n, currentLanguage, changeLanguage]);
 
   return (
     <LanguageContext.Provider value={{ currentLanguage, changeLanguage }}>

@@ -38,11 +38,8 @@ const StatCard = ({ value, label, currentLang }) => (
 );
 
 // Componente para el título de la sección
-const SectionTitle = ({ currentLang }) => {
-  const titles = {
-    en: { title: 'About', highlight: 'Me' },
-    es: { title: 'Sobre', highlight: 'Mí' }
-  };
+const SectionTitle = () => {
+  const { t } = useTranslation();
 
   return (
     <motion.div 
@@ -53,9 +50,9 @@ const SectionTitle = ({ currentLang }) => {
       variants={fadeInUp}
     >
       <h2 className="text-[length:var(--font-size-4xl)] md:text-[length:var(--font-size-5xl)] font-bold text-[var(--text-primary)] mb-4">
-        {titles[currentLang].title}{' '}
+        {t('about.title')}{' '}
         <span className="text-[var(--color-primary)]">
-          {titles[currentLang].highlight}
+          {t('about.highlight')}
         </span>
       </h2>
       <div className="w-20 h-1 bg-[var(--color-primary)] mx-auto rounded-full"></div>
@@ -75,7 +72,7 @@ export default function AboutMe() {
   return (
     <section id="aboutMe" className="w-full bg-white py-16 px-4">
       <div className="w-full max-w-[var(--max-width-sections)] mx-auto">
-        <SectionTitle currentLang={currentLang} />
+        <SectionTitle />
 
         <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12">
           {/* Imagen del perfil con efectos */}
@@ -118,10 +115,7 @@ export default function AboutMe() {
             {/* Título móvil */}
             <div className="block lg:hidden text-center mb-6">
               <h3 className="text-xl font-semibold text-[var(--text-secondary)]">
-                {currentLang === 'en' ? 'About ' : 'Sobre '}
-                <span className="text-[var(--color-primary)]">
-                  {currentLang === 'en' ? 'Me' : 'Mí'}
-                </span>
+                {t('about.title')} <span className="text-[var(--color-primary)]">{t('about.highlight')}</span>
               </h3>
             </div>
 

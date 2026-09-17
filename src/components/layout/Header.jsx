@@ -135,7 +135,7 @@ const Header = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          Joel Carrasco
+          {portfolioData.personalInfo.name}
         </motion.button>
 
         {/* Desktop Navigation */}
@@ -245,7 +245,7 @@ const Header = () => {
                 <motion.button
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] px-8 py-3 transition-colors bg-[var(--gray-100)] rounded-full font-medium text-base"
-                  aria-label="Close menu"
+                  aria-label={t('header.closeMenu')}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   initial={{ opacity: 0, y: 20 }}
@@ -253,7 +253,7 @@ const Header = () => {
                   exit={{ opacity: 0, y: 20 }}
                   transition={{ delay: (navLinks.length + 1) * 0.05 }}
                 >
-                  {currentLang === 'en' ? 'Close' : 'Cerrar'}
+                  {t('header.close')}
                 </motion.button>
               </div>
             </div>

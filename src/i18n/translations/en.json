@@ -5,13 +5,19 @@
     "aboutMe": "About Me",
     "experience": "Experience",
     "contact": "Contact Me",
-    "resume": "Resume"
+    "resume": "Resume",
+    "close": "Close",
+    "closeMenu": "Close menu"
   },
   "hero": {
     "greeting": "Hello I'm",
     "title": "Software Engineer",
     "location": "Located in",
     "bio": "Senior Software Engineer with 5 years of experience owning complex systems end-to-end."
+  },
+  "about": {
+    "title": "About",
+    "highlight": "Me"
   },
   "sections": {
     "skills": "My",
@@ -76,10 +82,15 @@
       "subjectPlaceholder": "Subject *",
       "websitePlaceholder": "https://yourwebsite.com (optional)",
       "messagePlaceholder": "Tell me about your project... *",
+      "subjectLabel": "Subject",
+      "messageLabel": "Message",
       "sending": "Sending...",
       "sendMessage": "Send Message",
       "successMessage": "Thank you! Your message has been sent successfully.",
       "errorMessage": "Something went wrong. Please try again."
+    },
+    "toast": {
+      "emailClientOpened": "Email client opened. Please send the email from your email application."
     },
     "validation": {
       "emailRequired": "Email is required",
