@@ -67,7 +67,7 @@ const Header = () => {
   // Handle resume download with toast notifications
   const handleResumeDownload = async () => {
     const { resume } = portfolioData;
-    const fileName = resume.fileName[currentLang];
+    const fileName = resume.fileName;
     
     try {
       // Show loading toast

@@ -16,6 +16,13 @@ import {
   SiMicrosoftsqlserver,
   SiPostman,
   SiFigma,
+  SiGo,
+  SiPostgresql,
+  SiMongodb,
+  SiDocker,
+  SiGithubactions,
+  SiSonarqube,
+  SiRedis,
 } from 'react-icons/si';
 import { VscAzure } from 'react-icons/vsc';
 import { FaGitAlt, FaJava } from 'react-icons/fa';
@@ -37,7 +44,9 @@ export default function Skills() {
       SiReact, SiAngular, SiNextdotjs, SiRedux, SiJavascript,
       SiTypescript, SiTailwindcss, SiSass, SiNodedotjs,
       SiCsharp, FaJava, SiMicrosoftsqlserver, FaGitAlt,
-      VscAzure, SiFigma, SiPostman, SiTestinglibrary
+      VscAzure, SiFigma, SiPostman, SiTestinglibrary,
+      SiGo, SiPostgresql, SiMongodb, SiDocker,
+      SiGithubactions, SiSonarqube, SiRedis
     };
     return icons[iconName];
   };
@@ -77,7 +86,7 @@ export default function Skills() {
               const IconComponent = getIconComponent(tech.icon);
               return (
                 <motion.div
-                  key={`${tech.label}-${index}`}
+                  key={`${tech.name}-${index}`}
                   className="group relative bg-white border-2 border-[var(--gray-100)] rounded-2xl p-4 md:p-6 flex flex-col items-center justify-center transition-all duration-500 ease-out hover:border-[var(--color-black)] hover:shadow-2xl hover:shadow-black/10 cursor-pointer overflow-hidden"
                   variants={staggerItem}
                   whileHover={{
@@ -96,7 +105,7 @@ export default function Skills() {
 
                   {/* Icono */}
                   <div className="relative z-10 text-3xl md:text-4xl mb-3 text-[var(--text-muted)] group-hover:text-[var(--text-primary)] transition-all duration-500 ease-out group-hover:scale-110 group-hover:-translate-y-1">
-                    <IconComponent />
+                    {IconComponent ? <IconComponent /> : <span className="text-lg font-bold">{tech.name.charAt(0)}</span>}
                   </div>
                   
                   {/* Label */}

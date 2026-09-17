@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react';
 
-type Breakpoint = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
+export function useBreakpoint() {
+  const [breakpoint, setBreakpoint] = useState('xs');
 
-export function useBreakpoint(): Breakpoint {
-  const [breakpoint, setBreakpoint] = useState<Breakpoint>('xs');
-
-  const getBreakpoint = (width: number): Breakpoint => {
+  const getBreakpoint = (width) => {
     if (width >= 1536) return '2xl';
     if (width >= 1280) return 'xl';
     if (width >= 1024) return 'lg';

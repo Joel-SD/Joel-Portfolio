@@ -1,10 +1,10 @@
 import emailjs from '@emailjs/browser';
 
-// EmailJS Configuration
+// EmailJS Configuration - set via environment variables or replace placeholders below
 const EMAILJS_CONFIG = {
-  SERVICE_ID: 'service_your_service_id', // Replace with your EmailJS service ID
-  TEMPLATE_ID: 'template_your_template_id', // Replace with your EmailJS template ID
-  PUBLIC_KEY: 'your_public_key', // Replace with your EmailJS public key
+  SERVICE_ID: import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_your_service_id',
+  TEMPLATE_ID: import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_your_template_id',
+  PUBLIC_KEY: import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'your_public_key',
 };
 
 /**
@@ -12,7 +12,6 @@ const EMAILJS_CONFIG = {
  */
 class EmailService {
   constructor() {
-    // Initialize EmailJS with public key
     emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
   }
 
@@ -27,7 +26,7 @@ class EmailService {
         from_email: formData.email,
         subject: formData.subject,
         message: formData.message,
-        to_name: 'Joel Carrasco', // Your name
+        to_name: 'Joel Carrasco',
         reply_to: formData.email,
       };
 
@@ -38,21 +37,13 @@ class EmailService {
       );
 
       if (response.status === 200) {
-        return {
-          success: true,
-          message: 'Email sent successfully',
-          data: response,
-        };
+        return { success: true, message: 'Email sent successfully', data: response };
       } else {
         throw new Error(`EmailJS returned status: ${response.status}`);
       }
     } catch (error) {
       console.error('EmailJS Error:', error);
-      return {
-        success: false,
-        message: error.message || 'Failed to send email',
-        error,
-      };
+      return { success: false, message: error.message || 'Failed to send email', error };
     }
   }
 
@@ -69,10 +60,6 @@ class EmailService {
   }
 }
 
-// Create and export singleton instance
 const emailService = new EmailService();
-
 export default emailService;
-
-// Export configuration for easy setup reference
 export { EMAILJS_CONFIG };

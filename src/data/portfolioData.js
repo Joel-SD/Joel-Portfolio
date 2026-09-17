@@ -1,23 +1,21 @@
-import AboutMe from "../components/sections/aboutMe/AboutMe";
-
 export const portfolioData = {
   personalInfo: {
     name: 'Joel Carrasco',
     title: {
-      en: 'Software Developer',
-      es: 'Desarrollador de Software',
+      en: 'Software Engineer',
+      es: 'Ingeniero de Software',
     },
     location: {
       en: 'Panama',
       es: 'Panamá',
     },
     bio: {
-      en: "Full Stack Developer with 3+ years of experience developing robust web and mobile applications. Focused on end-to-end development using React, C#/.NET, and SQL Server. Passionate about agile methodologies and performance optimization in every project.\n\nSpecialized in creating scalable solutions with modern technologies including React Native, Angular, and TypeScript. Experience with Azure DevOps, automated testing, and API integrations. Always committed to delivering high-quality code and exceptional user experiences.",
-      es: 'Desarrollador Full Stack con más de 3 años de experiencia desarrollando aplicaciones web y móviles robustas. Enfocado en desarrollo end-to-end usando React, C#/.NET y SQL Server. Apasionado por las metodologías ágiles y la optimización del rendimiento en cada proyecto.\n\nEspecializado en crear soluciones escalables con tecnologías modernas incluyendo React Native, Angular y TypeScript. Experiencia con Azure DevOps, pruebas automatizadas e integraciones de APIs. Siempre comprometido con entregar código de alta calidad y experiencias de usuario excepcionales.',
+      en: "Senior Software Engineer with 5 years of experience owning complex systems end-to-end. Proven expertise in data-heavy architectures, microservices, and production systems. Proficient in Node.js, React, Angular, and modern backend patterns. Experienced with AI-assisted development tools (Claude, GitHub Copilot). Collaborative engineer delivering reliable, scalable solutions in cross-functional teams.",
+      es: "Ingeniero de Software Senior con 5 años de experiencia en sistemas complejos de extremo a extremo. Experiencia comprobada en arquitecturas pesadas en datos, microservicios y sistemas en producción. Dominio de Node.js, React, Angular y patrones modernos de backend. Experiencia con herramientas de desarrollo asistido por IA (Claude, GitHub Copilot). Ingeniero colaborativo que entrega soluciones confiables y escalables en equipos multifuncionales.",
     },
     aboutMe: {
-      en: "I'm Joel, a 25-year-old Full Stack Developer based in Panama with 3+ years of building software that actually works. My day-to-day involves everything from crafting frontends web and mobile apps to optimizing database stored procedures. I've shipped projects for both Android and iOS, created APIs from scratch, and spent considerable time mentoring junior developers. I love taking on challenging projects and have built up serious resilience when it comes to finishing things and making the impossible possible. I get excited about creating extravagant animations that take way too much time to perfect, but honestly, understanding the business from its core foundations is often far more interesting. I genuinely enjoy every part of the development process – from that first line of code to seeing users interact with the final product, no matter how many obstacles I encounter along the way.",
-      es: "Soy Joel, un Desarrollador Full Stack de 25 años con sede en Panamá y más de 3 años construyendo software que realmente funciona. Mi día a día incluye desde crear aplicaciones móviles y webs, hasta optimizar procedimientos almacenados en bases de datos. He lanzado proyectos tanto para Android como iOS, creado APIs desde cero, y dedicado tiempo considerable mentoreando desarrolladores junior. Me encantan los proyectos desafiantes y he desarrollado una gran resistencia para terminar las cosas y hacer posible lo imposible. Me emociono creando animaciones extravagantes que toman demasiado tiempo perfeccionar, pero honestamente, entender el negocio desde sus fundamentos centrales es a menudo mucho más interesante. Genuinamente disfruto cada parte del proceso de desarrollo – desde esa primera línea de código hasta ver usuarios interactuar con el producto final, sin importar cuántos obstáculos encuentre en el camino."
+      en: "I'm Joel, a Software Engineer based in Panama with 5 years of building software that actually works. My day-to-day involves everything from crafting frontends web and mobile apps to optimizing database stored procedures. I've shipped projects for both Android and iOS, created APIs from scratch, and spent considerable time mentoring junior developers. I love taking on challenging projects and have built up serious resilience when it comes to finishing things and making the impossible possible. I get excited about creating extravagant animations that take way too much time to perfect, but honestly, understanding the business from its core foundations is often far more interesting. I genuinely enjoy every part of the development process – from that first line of code to seeing users interact with the final product, no matter how many obstacles I encounter along the way.",
+      es: "Soy Joel, un Ingeniero de Software con sede en Panamá y 5 años construyendo software que realmente funciona. Mi día a día incluye desde crear aplicaciones móviles y webs, hasta optimizar procedimientos almacenados en bases de datos. He lanzado proyectos tanto para Android como iOS, creado APIs desde cero, y dedicado tiempo considerable mentoreando desarrolladores junior. Me encantan los proyectos desafiantes y he desarrollado una gran resistencia para terminar las cosas y hacer posible lo imposible. Me emociono creando animaciones extravagantes que toman demasiado tiempo perfeccionar, pero honestamente, entender el negocio desde sus fundamentos centrales es a menudo mucho más interesante. Genuinamente disfruto cada parte del proceso de desarrollo – desde esa primera línea de código hasta ver usuarios interactuar con el producto final, sin importar cuántos obstáculos encuentre en el camino."
     },
     socialLinks: [
       { name: 'github', url: 'https://github.com/Joel-SD' },
@@ -27,19 +25,27 @@ export const portfolioData = {
     ],
   },
 
-  skills: [
-    { name: 'JavaScript', icon: 'JS', category: 'frontend' },
-    { name: 'TypeScript', icon: 'TS', category: 'frontend' },
-    { name: 'React', icon: 'React', category: 'frontend' },
-    { name: 'Next.js', icon: 'Next', category: 'frontend' },
-    { name: 'Tailwind CSS', icon: 'Tailwind', category: 'frontend' },
-    { name: 'Sass/SCSS', icon: 'Sass', category: 'frontend' },
-    { name: 'Storybook', icon: 'Storybook', category: 'tools' },
-    { name: 'Git', icon: 'Git', category: 'tools' },
-    { name: 'Socket.io', icon: 'Socket', category: 'backend' },
-  ],
-
   experience: [
+    {
+      company: {
+        en: 'Infotree Global Solutions - Dell',
+        es: 'Infotree Global Solutions - Dell',
+      },
+      website: 'https://www.infotreeglobal.com/',
+      logo: '/assets/companies/infotree_global_solutions_logo.jpeg',
+      position: {
+        en: 'Senior Software Engineer',
+        es: 'Ingeniero de Software Senior',
+      },
+      period: {
+        en: 'June 2026 - Present',
+        es: 'Junio 2026 - Presente',
+      },
+      description: {
+        en: "• Maintain and develop disaster recovery analytics platform for Dell's enterprise infrastructure, processing real-time data from mission-critical recovery systems.\n• Built high-performance Node.js services and Angular frontend using Redis caching, complex data structures (graphs, trees), and sophisticated business logic patterns.\n• Collaborated with Principal Engineer on system design, code quality standards, and architectural decisions for enterprise-scale applications.",
+        es: "• Mantengo y desarrollo la plataforma de análisis de recuperación de desastres de la infraestructura empresarial de Dell, procesando datos en tiempo real de sistemas de recuperación de misión crítica.\n• Construí servicios de alto rendimiento en Node.js y frontend Angular utilizando Redis caching, estructuras de datos complejas (grafos, árboles) y patrones sofisticados de lógica de negocio.\n• Colaboré con Ingeniero Principal en diseño de sistemas, estándares de calidad de código y decisiones arquitectónicas para aplicaciones a escala empresarial.",
+      },
+    },
     {
       company: {
         en: 'Hypernova Labs',
@@ -52,12 +58,12 @@ export const portfolioData = {
         es: 'Desarrollador Full Stack',
       },
       period: {
-        en: 'April 2024 - Present',
-        es: 'Abril 2024 - Presente',
+        en: 'April 2024 - June 2026',
+        es: 'Abril 2024 - Junio 2026',
       },
       description: {
-        en: "• Develop end-to-end features for web and mobile applications with React, React Native, and Angular using TypeScript.\n• Improved stored procedures reducing query response times.\n• Implementation of APIs and business logic in C# .NET with SQL Server (stored procedures).\n• API consumption and backend collaboration with C# .NET and SQL Server.\n• Unit and integration testing with C# .NET (SonarQube, NUnit, xUnit, Jest).\n• Pipeline configuration in Azure DevOps (CI/CD, builds, releases, artifacts) and collaborated with deployments.\n• Participation in projects under Agile methodologies.",
-        es: '• Desarrollo de funcionalidades end-to-end para aplicaciones web y móviles con React, React Native, y Angular usando TypeScript.\n• Mejoré procedimientos almacenados reduciendo tiempos de respuesta de consultas.\n• Implementación de APIs y lógica de negocio en C# .NET con SQL Server (procedimientos almacenados).\n• Consumo de APIs y colaboración backend con C# .NET y SQL Server.\n• Pruebas unitarias e integración con C# .NET (SonarQube, NUnit, xUnit, Jest).\n• Configuración de pipelines en Azure DevOps (CI/CD, builds, releases, artifacts) y colaboré con deployments.\n• Participación en proyectos bajo metodologías Agile.',
+        en: "• Led end-to-end migration of multi-tenant SaaS platform from Node.js + MongoDB to Go + SQL Server, achieving 40%+ latency reduction on high-traffic endpoints.\n• Shipped production REST APIs using C#/.NET 6 and Go with hexagonal architecture, serving 10+ enterprise tenants.\n• Optimized SQL Server stored procedures on 25M+ record tables through execution plan analysis and index tuning.\n• Maintained CI/CD pipelines (Azure Pipelines, GitHub Actions) with automated testing (NUnit, xUnit, Jest, SonarQube).",
+        es: "• Lideré la migración end-to-end de una plataforma SaaS multi-tenant de Node.js + MongoDB a Go + SQL Server, logrando una reducción de latencia del 40%+ en endpoints de alto tráfico.\n• Implementé APIs REST en producción usando C#/.NET 6 y Go con arquitectura hexagonal, sirviendo a 10+ clientes empresariales.\n• Optimicé procedimientos almacenados en SQL Server en tablas de 25M+ registros mediante análisis de planes de ejecución y ajuste de índices.\n• Mantuve pipelines de CI/CD (Azure Pipelines, GitHub Actions) con pruebas automatizadas (NUnit, xUnit, Jest, SonarQube).",
       },
     },
     {
@@ -76,8 +82,8 @@ export const portfolioData = {
         es: 'Enero 2024 - Abril 2024',
       },
       description: {
-        en: '• Module development with Java, Angular, and TypeScript.\n• Integration of external APIs (third-party).\n• Unit test automation with Java and testing frameworks.\n• Work in hybrid environments with Agile.',
-        es: '• Desarrollo de módulos con Java, Angular, y TypeScript.\n• Integración de APIs externas (third-party).\n• Automatización de pruebas unitarias con Java y frameworks de testing.\n• Trabajo en entornos híbridos con Agile.',
+        en: '• Developed enterprise application modules using Java, Angular, TypeScript in a hybrid Agile environment.\n• Integrated third-party REST APIs and internal services; implemented unit tests and contributed to code quality.',
+        es: '• Desarrollé módulos de aplicaciones empresariales usando Java, Angular, TypeScript en un entorno Agile híbrido.\n• Integré APIs REST de terceros y servicios internos; implementé pruebas unitarias y contribuí a la calidad del código.',
       },
     },
     {
@@ -96,8 +102,8 @@ export const portfolioData = {
         es: 'Junio 2022 - Enero 2024',
       },
       description: {
-        en: '• Developed modules and features in React and React Native for Android and iOS.\n• Implementation of dark mode and multi-language in web portal and mobile app.\n• Integration of Google Analytics, deep linking, and third-party APIs (Google Maps, login with Google/Facebook/Apple).\n• Creation of animations and interactive interfaces with React Native Reanimated.',
-        es: '• Desarrollé módulos y funcionalidades en React y React Native para Android e iOS.\n• Implementación de modo oscuro y multi-idioma en portal web y app móvil.\n• Integración de Google Analytics, deep linking, y APIs de terceros (Google Maps, login con Google/Facebook/Apple).\n• Creación de animaciones e interfaces interactivas con React Native Reanimated.',
+        en: '• Built cross-platform mobile features in React and React Native (Android/iOS), including dark mode, i18n, deep linking, and OAuth integrations (Google/Facebook/Apple).\n• Integrated Google Analytics and third-party APIs; created animations with React Native Reanimated.',
+        es: '• Construí funcionalidades móviles multiplataforma en React y React Native (Android/iOS), incluyendo modo oscuro, i18n, deep linking, e integraciones OAuth (Google/Facebook/Apple).\n• Integré Google Analytics y APIs de terceros; creé animaciones con React Native Reanimated.',
       },
     },
   ],
@@ -105,29 +111,28 @@ export const portfolioData = {
   skills: {
     technologies: [
       { name: 'React', category: 'Frontend', icon: 'SiReact' },
-      { name: 'React Native', category: 'Frontend', icon: 'SiReact' },
       { name: 'Angular', category: 'Frontend', icon: 'SiAngular' },
+      { name: 'React Native', category: 'Frontend', icon: 'SiReact' },
       { name: 'Next.js', category: 'Frontend', icon: 'SiNextdotjs' },
-      { name: 'Redux', category: 'Frontend', icon: 'SiRedux' },
-      { name: 'JavaScript', category: 'Frontend', icon: 'SiJavascript' },
       { name: 'TypeScript', category: 'Frontend', icon: 'SiTypescript' },
-      { name: 'Tailwind', category: 'Frontend', icon: 'SiTailwindcss' },
-      { name: 'Sass', category: 'Frontend', icon: 'SiSass' },
       { name: 'Node.js', category: 'Backend', icon: 'SiNodedotjs' },
-      { name: 'C#', category: 'Backend', icon: 'SiCsharp' },
+      { name: 'Go', category: 'Backend', icon: 'SiGo' },
+      { name: 'C#/.NET', category: 'Backend', icon: 'SiCsharp' },
       { name: 'Java', category: 'Backend', icon: 'FaJava' },
       { name: 'SQL Server', category: 'Database', icon: 'SiMicrosoftsqlserver' },
-      { name: 'Git', category: 'Tools', icon: 'FaGitAlt' },
-      { name: 'Azure', category: 'Tools', icon: 'VscAzure' },
-      { name: 'Figma', category: 'Tools', icon: 'SiFigma' },
-      { name: 'Postman', category: 'Tools', icon: 'SiPostman' },
-      { name: 'Testing', category: 'Tools', icon: 'SiTestinglibrary' }
-    ]
+      { name: 'PostgreSQL', category: 'Database', icon: 'SiPostgresql' },
+      { name: 'MongoDB', category: 'Database', icon: 'SiMongodb' },
+      { name: 'Redis', category: 'Database', icon: 'SiRedis' },
+      { name: 'Docker', category: 'DevOps', icon: 'SiDocker' },
+      { name: 'Azure', category: 'DevOps', icon: 'VscAzure' },
+      { name: 'GitHub Actions', category: 'DevOps', icon: 'SiGithubactions' },
+      { name: 'SonarQube', category: 'DevOps', icon: 'SiSonarqube' },
+    ],
   },
 
   stats: [
     {
-      value: '3+',
+      value: '5+',
       label: {
         en: 'Years Experience',
         es: 'Años de Experiencia'
@@ -150,10 +155,7 @@ export const portfolioData = {
   ],
 
   resume: {
-    fileName: {
-      en: 'Joel_Carrasco_Resume.pdf',
-      es: 'Joel_Carrasco_CV.pdf'
-    }
+    fileName: 'Joel Carrasco Resume.pdf'
   },
 
   projects: [
