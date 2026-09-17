@@ -13,11 +13,24 @@
   --text-error: #ef4444;     /* Para mensajes de error */
   
   /* Otros colores del sistema */
+  --color-black: #000000;
+  --color-neutral: #404040;
+  --color-white: #ffffff;
   --color-primary: #000000;
   --color-secondary: #ffffff;
   --color-accent: #3b82f6;
   --color-background: #ffffff;
   --color-card-bg: #f3f4f6;
+  --color-text-light: #6b7280;
+
+  /* Escala de grises */
+  --gray-50: #fafafa;
+  --gray-100: #f4f4f5;
+  --gray-200: #e4e4e7;
+  --gray-300: #d4d4d8;
+  --gray-500: #71717a;
+  --gray-600: #52525b;
+  --gray-800: #27272a;
 
   /* Espaciado */
   --spacing-xs: 0.25rem;
@@ -38,6 +51,12 @@
   --transition-slow: 500ms ease;
 
   /* font sizes */
+  --font-size-p3: 16px;      /* Texto pequeño */
+  --font-size-p2: 20px;      /* Texto destacado */
+  --font-size-p1: 24px;      /* Texto grande */
+  --font-size-h3: 32px;      /* Títulos pequeños */
+  --font-size-h2: 40px;      /* Títulos medianos */
+  --font-size-h1: 48px;      /* Títulos grandes */
   --font-size-xs: 12px;      /* Para texto muy pequeño como etiquetas */
   --font-size-sm: 14px;      /* Para texto secundario */
   --font-size-base: 16px;    /* Texto base */
