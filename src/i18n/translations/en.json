@@ -1,10 +1,9 @@
 {
   "header": {
-    "about": "",
     "skills": "Skills",
-    "aboutMe": "About Me",
+    "aboutMe": "About",
     "experience": "Experience",
-    "contact": "Contact Me",
+    "contact": "Contact",
     "resume": "Resume",
     "close": "Close",
     "closeMenu": "Close menu"
@@ -13,21 +12,27 @@
     "greeting": "Hello I'm",
     "title": "Software Engineer",
     "location": "Located in",
-    "bio": "Senior Software Engineer with 5 years of experience owning complex systems end-to-end."
+    "ctaExperience": "See experience",
+    "ctaContact": "Get in touch"
   },
   "about": {
     "title": "About",
-    "highlight": "Me"
+    "highlight": "me"
   },
   "sections": {
-    "skills": "My",
-    "experience": "My Experience",
-    "projects": "My Projects",
-    "contact": "Contact Me"
+    "skills": "Skills",
+    "experience": "Experience",
+    "projects": "Work",
+    "contact": "Contact"
   },
   "skills": {
-    "description": "Technologies and tools I work with to create amazing digital experiences.",
-    "additional": "Always learning new technologies and staying up to date with the latest trends in web development."
+    "description": "The stack I actually use at work — grouped the way I think about systems.",
+    "categories": {
+      "Frontend": "Frontend",
+      "Backend": "Backend",
+      "Database": "Data",
+      "DevOps": "DevOps"
+    }
   },
   "experience": {
     "current": "Present",
@@ -40,61 +45,33 @@
     "downloadCV": "Download CV"
   },
   "resume": {
-    "downloading": "Downloading Resume..."
+    "downloading": "Downloading resume..."
   },
   "language": {
     "switchTo": "Switch to",
     "english": "English",
     "spanish": "Spanish",
-    "currentLanguage": "Current language: English",
-    "flags": {
-      "us": {
-        "alt": "United States Flag",
-        "colors": {
-          "stripes": "#B22234",
-          "stars": "#3C3B6E",
-          "white": "#FFFFFF"
-        }
-      },
-      "spain": {
-        "alt": "Spanish Flag",
-        "colors": {
-          "red": "#AA151B",
-          "yellow": "#F1BF00"
-        }
-      }
-    }
+    "currentLanguage": "Current language: English"
   },
   "contact": {
-    "title": "Get In",
-    "titleHighlight": "Touch",
-    "subtitle": "Ready to bring your ideas to life? Let's discuss your project and create something amazing together.",
-    "formTitle": "Send me a message",
-    "letsTalk": "Let's",
-    "talkHighlight": "talk",
-    "talkFor": "for",
-    "somethingSpecial": "Something special",
-    "description": "I seek to push the limits of creativity to create high-engaging, user-friendly, and memorable interactive experiences. Let's collaborate!",
+    "formTitle": "Write me",
+    "formLead": "I read everything. You can also email me directly.",
+    "asideTitle": "Or email me directly",
+    "description": "Data-heavy systems, migrations, and products that have to stay up — that's the work I like.",
     "form": {
-      "description": "Fill out the form below and I'll get back to you as soon as possible.",
-      "namePlaceholder": "Your full name *",
-      "emailPlaceholder": "your.email@example.com *",
-      "subjectPlaceholder": "Subject *",
-      "websitePlaceholder": "https://yourwebsite.com (optional)",
-      "messagePlaceholder": "Tell me about your project... *",
+      "emailPlaceholder": "you@company.com",
+      "subjectPlaceholder": "Subject",
+      "messagePlaceholder": "What are you working on?",
       "subjectLabel": "Subject",
       "messageLabel": "Message",
-      "sending": "Sending...",
-      "sendMessage": "Send Message",
-      "successMessage": "Thank you! Your message has been sent successfully.",
-      "errorMessage": "Something went wrong. Please try again."
+      "sending": "Sending..."
     },
     "toast": {
-      "emailClientOpened": "Email client opened. Please send the email from your email application."
+      "emailClientOpened": "Email client opened. Send it from there when you're ready."
     },
     "validation": {
       "emailRequired": "Email is required",
-      "emailInvalid": "Please enter a valid email address",
+      "emailInvalid": "Enter a valid email address",
       "subjectRequired": "Subject is required",
       "subjectMinLength": "Subject must be at least 3 characters",
       "subjectMaxLength": "Subject must be less than 100 characters",
@@ -104,35 +81,31 @@
     },
     "labels": {
       "email": "Email",
-      "phone": "Phone",
-      "whatsapp": "WhatsApp",
       "linkedin": "LinkedIn",
       "github": "GitHub"
     },
     "buttons": {
-      "send": "Send Message",
+      "send": "Send message",
       "sending": "Sending...",
       "social": {
-        "openEmail": "Opening email client...",
-        "openPhone": "Opening phone...",
-        "openWhatsapp": "Opening WhatsApp...",
+        "openEmail": "Opening email...",
         "openLinkedin": "Opening LinkedIn...",
         "openGithub": "Opening GitHub..."
       }
     }
   },
   "toast": {
-    "emailSent": "✅ Email sent successfully!",
-    "emailError": "❌ Failed to send email. Please try again.",
-    "cvDownloadSuccess": "✅ {{fileName}} downloaded successfully!",
-    "cvDownloadError": "❌ Failed to download CV. Please try again.",
-    "formValidationError": "⚠️ Please fill in all required fields correctly.",
-    "networkError": "🌐 Network error. Please check your connection.",
-    "unexpectedError": "💥 An unexpected error occurred. Please try again."
+    "emailSent": "Email sent. I'll get back to you.",
+    "emailError": "Couldn't send the email. Try again, or use the address on the right.",
+    "cvDownloadSuccess": "{{fileName}} downloaded.",
+    "cvDownloadError": "Couldn't download the resume. Try again.",
+    "formValidationError": "Fill in the required fields and try again.",
+    "networkError": "Network error. Check your connection.",
+    "unexpectedError": "Something went wrong. Try again."
   },
   "footer": {
-    "copyright": "© {{year}} Joel Carrasco.",
-    "madeWith": "Made with Vite & React",
+    "copyright": "© {{year}} Joel Carrasco",
+    "location": "Panama City",
     "logoAlt": "Joel Carrasco Logo"
   }
 }

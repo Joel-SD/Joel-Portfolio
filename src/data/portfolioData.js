@@ -10,18 +10,16 @@ export const portfolioData = {
       es: 'Panamá',
     },
     bio: {
-      en: "Senior Software Engineer with 5 years of experience owning complex systems end-to-end. Proven expertise in data-heavy architectures, microservices, and production systems. Proficient in Node.js, React, Angular, and modern backend patterns. Experienced with AI-assisted development tools (Claude, GitHub Copilot). Collaborative engineer delivering reliable, scalable solutions in cross-functional teams.",
-      es: "Ingeniero de Software Senior con 5 años de experiencia en sistemas complejos de extremo a extremo. Experiencia comprobada en arquitecturas pesadas en datos, microservicios y sistemas en producción. Dominio de Node.js, React, Angular y patrones modernos de backend. Experiencia con herramientas de desarrollo asistido por IA (Claude, GitHub Copilot). Ingeniero colaborativo que entrega soluciones confiables y escalables en equipos multifuncionales.",
+      en: 'I own data-heavy backends and the UIs that sit on them.',
+      es: 'Me hago cargo de backends con mucha data y de las interfaces que viven encima.',
     },
     aboutMe: {
-      en: "I'm Joel, a Software Engineer based in Panama with 5 years of building software that actually works. My day-to-day involves everything from crafting frontends web and mobile apps to optimizing database stored procedures. I've shipped projects for both Android and iOS, created APIs from scratch, and spent considerable time mentoring junior developers. I love taking on challenging projects and have built up serious resilience when it comes to finishing things and making the impossible possible. I get excited about creating extravagant animations that take way too much time to perfect, but honestly, understanding the business from its core foundations is often far more interesting. I genuinely enjoy every part of the development process – from that first line of code to seeing users interact with the final product, no matter how many obstacles I encounter along the way.",
-      es: "Soy Joel, un Ingeniero de Software con sede en Panamá y 5 años construyendo software que realmente funciona. Mi día a día incluye desde crear aplicaciones móviles y webs, hasta optimizar procedimientos almacenados en bases de datos. He lanzado proyectos tanto para Android como iOS, creado APIs desde cero, y dedicado tiempo considerable mentoreando desarrolladores junior. Me encantan los proyectos desafiantes y he desarrollado una gran resistencia para terminar las cosas y hacer posible lo imposible. Me emociono creando animaciones extravagantes que toman demasiado tiempo perfeccionar, pero honestamente, entender el negocio desde sus fundamentos centrales es a menudo mucho más interesante. Genuinamente disfruto cada parte del proceso de desarrollo – desde esa primera línea de código hasta ver usuarios interactuar con el producto final, sin importar cuántos obstáculos encuentre en el camino."
+      en: "I'm Joel. I work across web, mobile, APIs, and databases — and I care as much about the business as the code. I've shipped Android and iOS apps, built APIs from scratch, and mentored junior developers. Hard problems, finishing them, and making the product usable: that's the part I like.",
+      es: 'Soy Joel. Trabajo en web, móvil, APIs y bases de datos — y me importa el negocio tanto como el código. He lanzado apps en Android e iOS, creado APIs desde cero y mentoreado a juniors. Problemas difíciles, terminarlos y que el producto se pueda usar: esa es la parte que me gusta.',
     },
     socialLinks: [
       { name: 'github', url: 'https://github.com/Joel-SD' },
       { name: 'linkedin', url: 'https://www.linkedin.com/in/joel-carrasco-cubilla' },
-      { name: 'twitter', url: 'https://twitter.com/yourusername' },
-      { name: 'instagram', url: 'https://instagram.com/yourusername' },
     ],
   },
 
@@ -134,24 +132,17 @@ export const portfolioData = {
     {
       value: '5+',
       label: {
-        en: 'Years Experience',
-        es: 'Años de Experiencia'
-      }
+        en: 'Years shipping',
+        es: 'Años en producción',
+      },
     },
     {
       value: '15+',
       label: {
         en: 'Projects',
-        es: 'Proyectos'
-      }
+        es: 'Proyectos',
+      },
     },
-    {
-      value: '∞',
-      label: {
-        en: 'Coffee Cups',
-        es: 'Tazas de Café'
-      }
-    }
   ],
 
   resume: {

@@ -52,7 +52,7 @@ const Header = () => {
     } else {
       const element = document.getElementById(sectionId);
       if (element) {
-        const headerHeight = 80; // Approximate header height
+        const headerHeight = 96;
         const elementPosition = element.offsetTop - headerHeight;
         
         window.scrollTo({
@@ -109,12 +109,10 @@ const Header = () => {
   };
 
   const navLinks = [
-    { name: t('header.about'), action: () => scrollToSection('about') },
-    { name: t('header.skills'), action: () => scrollToSection('skills') },
     { name: t('header.experience'), action: () => scrollToSection('experience') },
+    { name: t('header.skills'), action: () => scrollToSection('skills') },
     { name: t('header.aboutMe'), action: () => scrollToSection('aboutMe') },
     { name: t('header.contact'), action: () => scrollToSection('contact') },
-    { name: t('header.resume'), action: handleResumeDownload },
   ];
 
   return (
@@ -131,7 +129,7 @@ const Header = () => {
       <div className="container mx-auto flex justify-between items-center">
         <motion.button 
           onClick={() => scrollToSection('hero')} 
-          className="text-[var(--text-primary)] font-display font-bold text-[length:var(--font-size-xl)] hover:text-[var(--text-secondary)] transition-colors"
+          className="text-[var(--text-primary)] font-display font-bold text-[length:var(--font-size-xl)] hover:text-[var(--color-accent)] transition-colors"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -140,7 +138,7 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <motion.nav 
-          className="hidden md:flex items-center space-x-8"
+          className="hidden md:flex items-center space-x-6"
           variants={staggerContainer}
           initial="hidden"
           animate="visible"
@@ -149,7 +147,7 @@ const Header = () => {
             <motion.button
               key={link.name}
               onClick={link.action}
-              className="inline-block text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors min-w-fit cursor-pointer"
+              className="inline-block text-[var(--text-secondary)] hover:text-[var(--color-accent)] transition-colors min-w-fit cursor-pointer"
               variants={staggerItem}
               whileHover={buttonHover}
               whileTap={buttonTap}
@@ -157,6 +155,16 @@ const Header = () => {
               {link.name}
             </motion.button>
           ))}
+
+          <motion.button
+            onClick={handleResumeDownload}
+            className="px-4 py-2 rounded-lg bg-[var(--color-black)] text-white text-sm font-medium hover:bg-[var(--color-accent)] transition-colors"
+            variants={staggerItem}
+            whileHover={buttonHover}
+            whileTap={buttonTap}
+          >
+            {t('header.resume')}
+          </motion.button>
 
           <LanguageSwitcher />
         </motion.nav>
@@ -216,7 +224,7 @@ const Header = () => {
                   <motion.button
                     key={link.name}
                     onClick={link.action}
-                    className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] w-full text-center py-4 transition-all duration-300 cursor-pointer"
+                    className="text-[var(--text-secondary)] hover:text-[var(--color-accent)] w-full text-center py-4 transition-all duration-300 cursor-pointer"
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
@@ -227,6 +235,19 @@ const Header = () => {
                     {link.name}
                   </motion.button>
                 ))}
+
+                <motion.button
+                  onClick={handleResumeDownload}
+                  className="mt-4 px-6 py-3 rounded-lg bg-[var(--color-black)] text-white font-medium"
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ delay: navLinks.length * 0.05 }}
+                  whileHover={buttonHover}
+                  whileTap={buttonTap}
+                >
+                  {t('header.resume')}
+                </motion.button>
 
                 {/* Mobile Language Switcher */}
                 <motion.div

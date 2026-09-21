@@ -1,11 +1,10 @@
 {
   "header": {
-    "about": "",
-    "skills": "Habilidades",
-    "aboutMe": "Sobre Mí",
+    "skills": "Skills",
+    "aboutMe": "Sobre mí",
     "experience": "Experiencia",
-    "contact": "Contáctame",
-    "resume": "Currículum",
+    "contact": "Contacto",
+    "resume": "CV",
     "close": "Cerrar",
     "closeMenu": "Cerrar menú"
   },
@@ -13,30 +12,36 @@
     "greeting": "Hola soy",
     "title": "Ingeniero de Software",
     "location": "Ubicado en",
-    "bio": "Ingeniero de Software Senior con 5 años de experiencia en sistemas complejos de extremo a extremo."
+    "ctaExperience": "Ver experiencia",
+    "ctaContact": "Escribirme"
   },
   "about": {
     "title": "Sobre",
-    "highlight": "Mí"
+    "highlight": "mí"
   },
   "sections": {
-    "skills": "Mis",
-    "experience": "Mi Experiencia",
-    "projects": "Mis Proyectos",
-    "contact": "Contáctame"
+    "skills": "Skills",
+    "experience": "Experiencia",
+    "projects": "Trabajo",
+    "contact": "Contacto"
   },
   "skills": {
-    "description": "Tecnologías y herramientas con las que trabajo para crear experiencias digitales increíbles.",
-    "additional": "Siempre aprendiendo nuevas tecnologías y manteniéndome actualizado con las últimas tendencias en desarrollo web."
+    "description": "El stack que uso en el trabajo, agrupado como pienso los sistemas.",
+    "categories": {
+      "Frontend": "Frontend",
+      "Backend": "Backend",
+      "Database": "Datos",
+      "DevOps": "DevOps"
+    }
   },
   "experience": {
     "current": "Presente",
     "responsibilities": "Responsabilidades"
   },
   "buttons": {
-    "viewAll": "Ver Todo",
-    "viewProject": "Ver Proyecto",
-    "sendMessage": "Enviar Mensaje",
+    "viewAll": "Ver todo",
+    "viewProject": "Ver proyecto",
+    "sendMessage": "Enviar mensaje",
     "downloadCV": "Descargar CV"
   },
   "resume": {
@@ -46,93 +51,61 @@
     "switchTo": "Cambiar a",
     "english": "Inglés",
     "spanish": "Español",
-    "currentLanguage": "Idioma actual: Español",
-    "flags": {
-      "us": {
-        "alt": "Bandera de Estados Unidos",
-        "colors": {
-          "stripes": "#B22234",
-          "stars": "#3C3B6E",
-          "white": "#FFFFFF"
-        }
-      },
-      "spain": {
-        "alt": "Bandera de España",
-        "colors": {
-          "red": "#AA151B",
-          "yellow": "#F1BF00"
-        }
-      }
-    }
+    "currentLanguage": "Idioma actual: Español"
   },
   "contact": {
-    "title": "Ponte en",
-    "titleHighlight": "Contacto",
-    "subtitle": "¿Listo para dar vida a tus ideas? Hablemos sobre tu proyecto y creemos algo increíble juntos.",
-    "formTitle": "Envíame un mensaje",
-    "letsTalk": "Hablemos",
-    "talkHighlight": "para",
-    "talkFor": "algo",
-    "somethingSpecial": "Especial",
-    "description": "Busco empujar los límites de la creatividad para crear experiencias interactivas atractivas, fáciles de usar y memorables. ¡Colaboremos!",
+    "formTitle": "Escríbeme",
+    "formLead": "Leo todo. También puedes escribirme directo al correo.",
+    "asideTitle": "O mándame un correo",
+    "description": "Sistemas con mucha data, migraciones y productos que tienen que seguir en pie — ese es el trabajo que me gusta.",
     "form": {
-      "description": "Completa el formulario a continuación y me pondré en contacto contigo lo antes posible.",
-      "namePlaceholder": "Tu nombre completo *",
-      "emailPlaceholder": "tu.email@ejemplo.com *",
-      "subjectPlaceholder": "Asunto *",
-      "websitePlaceholder": "https://tusitio.com (opcional)",
-      "messagePlaceholder": "Cuéntame sobre tu proyecto... *",
+      "emailPlaceholder": "tu@empresa.com",
+      "subjectPlaceholder": "Asunto",
+      "messagePlaceholder": "¿En qué estás trabajando?",
       "subjectLabel": "Asunto",
       "messageLabel": "Mensaje",
-      "sending": "Enviando...",
-      "sendMessage": "Enviar Mensaje",
-      "successMessage": "¡Gracias! Tu mensaje ha sido enviado exitosamente.",
-      "errorMessage": "Algo salió mal. Por favor intenta de nuevo."
+      "sending": "Enviando..."
     },
     "toast": {
-      "emailClientOpened": "Cliente de correo abierto. Por favor envía el correo desde tu aplicación de email."
+      "emailClientOpened": "Se abrió el cliente de correo. Envía el mensaje desde ahí."
     },
     "validation": {
-      "emailRequired": "El email es requerido",
-      "emailInvalid": "Por favor ingresa un email válido",
-      "subjectRequired": "El asunto es requerido",
+      "emailRequired": "El correo es obligatorio",
+      "emailInvalid": "Ingresa un correo válido",
+      "subjectRequired": "El asunto es obligatorio",
       "subjectMinLength": "El asunto debe tener al menos 3 caracteres",
       "subjectMaxLength": "El asunto debe tener menos de 100 caracteres",
-      "messageRequired": "El mensaje es requerido",
+      "messageRequired": "El mensaje es obligatorio",
       "messageMinLength": "El mensaje debe tener al menos 10 caracteres",
       "messageMaxLength": "El mensaje debe tener menos de 1000 caracteres"
     },
     "labels": {
       "email": "Correo",
-      "phone": "Teléfono",
-      "whatsapp": "WhatsApp",
       "linkedin": "LinkedIn",
       "github": "GitHub"
     },
     "buttons": {
-      "send": "Enviar Mensaje",
+      "send": "Enviar mensaje",
       "sending": "Enviando...",
       "social": {
-        "openEmail": "Abriendo cliente de correo...",
-        "openPhone": "Abriendo teléfono...",
-        "openWhatsapp": "Abriendo WhatsApp...",
+        "openEmail": "Abriendo correo...",
         "openLinkedin": "Abriendo LinkedIn...",
         "openGithub": "Abriendo GitHub..."
       }
     }
   },
   "toast": {
-    "emailSent": "✅ ¡Email enviado exitosamente!",
-    "emailError": "❌ Error al enviar email. Por favor intenta de nuevo.",
-    "cvDownloadSuccess": "✅ ¡{{fileName}} descargado exitosamente!",
-    "cvDownloadError": "❌ Error al descargar CV. Por favor intenta de nuevo.",
-    "formValidationError": "⚠️ Por favor completa todos los campos requeridos correctamente.",
-    "networkError": "🌐 Error de red. Por favor verifica tu conexión.",
-    "unexpectedError": "💥 Ocurrió un error inesperado. Por favor intenta de nuevo."
+    "emailSent": "Correo enviado. Te respondo.",
+    "emailError": "No se pudo enviar. Intenta de nuevo o usa la dirección a la derecha.",
+    "cvDownloadSuccess": "{{fileName}} descargado.",
+    "cvDownloadError": "No se pudo descargar el CV. Intenta de nuevo.",
+    "formValidationError": "Completa los campos requeridos e intenta de nuevo.",
+    "networkError": "Error de red. Revisa tu conexión.",
+    "unexpectedError": "Algo salió mal. Intenta de nuevo."
   },
   "footer": {
-    "copyright": "© {{year}} Joel Carrasco.",
-    "madeWith": "Hecho con Vite & React",
+    "copyright": "© {{year}} Joel Carrasco",
+    "location": "Ciudad de Panamá",
     "logoAlt": "Logo de Joel Carrasco"
   }
 }

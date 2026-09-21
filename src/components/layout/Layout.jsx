@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
       <div className="relative w-full">
         <ScrollProgressBar />
         <Header />
-        <main className="flex flex-col items-center gap-14 pt-20 pb-12 w-full">
+        <main className="flex flex-col items-center pt-20 w-full bg-[var(--color-background)]">
           {children}
         </main>
         <Footer />

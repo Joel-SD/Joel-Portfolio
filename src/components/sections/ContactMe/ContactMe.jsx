@@ -2,97 +2,68 @@ import React, { useState, useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaWhatsapp, FaPaperPlane, FaSpinner } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaPaperPlane, FaSpinner } from 'react-icons/fa';
 import { useToast } from '../../../hooks/useToast';
 import emailService from '../../../services/emailService';
 import { portfolioData } from '../../../data/portfolioData';
+import SectionHeading from '../../common/SectionHeading';
 import {
-  fadeInUp,
   fadeInLeft,
   fadeInRight,
-  formFieldAnimation,
-  staggerContainer,
-  staggerItem,
   buttonHover,
   buttonTap,
   iconButtonHover,
   iconButtonTap,
-  defaultViewport
+  defaultViewport,
 } from '../../../utils/animations';
 
-// Contact methods configuration
 const getContactMethods = (t) => {
   const { contact, personalInfo } = portfolioData;
   const socialLinks = personalInfo.socialLinks;
-
   const getSocialUrl = (name) => socialLinks.find((link) => link.name === name)?.url || '';
 
   return {
-  email: {
-    icon: FaEnvelope,
-    label: t('contact.labels.email'),
-    value: contact.email,
-    action: (value) => `mailto:${value}`,
-    hoverColor: 'hover:bg-blue-600',
-    toastMessage: t('contact.buttons.social.openEmail')
-  },
-  phone: {
-    icon: FaPhone,
-    label: t('contact.labels.phone'),
-    value: contact.phone,
-    action: (value) => `tel:${value}`,
-    hoverColor: 'hover:bg-green-600',
-    toastMessage: t('contact.buttons.social.openPhone')
-  },
-  whatsapp: {
-    icon: FaWhatsapp,
-    label: t('contact.labels.whatsapp'),
-    value: contact.phone,
-    action: (value) => `https://wa.me/${value.replace(/[^0-9]/g, '')}`,
-    hoverColor: 'hover:bg-green-500',
-    external: true,
-    toastMessage: t('contact.buttons.social.openWhatsapp')
-  },
-  linkedin: {
-    icon: FaLinkedin,
-    label: t('contact.labels.linkedin'),
-    value: 'Joel Carrasco',
-    action: () => getSocialUrl('linkedin'),
-    hoverColor: 'hover:bg-blue-700',
-    external: true,
-    toastMessage: t('contact.buttons.social.openLinkedin')
-  },
-  github: {
-    icon: FaGithub,
-    label: t('contact.labels.github'),
-    value: 'Joel-SD',
-    action: () => getSocialUrl('github'),
-    hoverColor: 'hover:bg-gray-800',
-    external: true,
-    toastMessage: t('contact.buttons.social.openGithub')
-  },
+    email: {
+      icon: FaEnvelope,
+      label: t('contact.labels.email'),
+      value: contact.email,
+      href: `mailto:${contact.email}`,
+      toastMessage: t('contact.buttons.social.openEmail'),
+      external: false,
+    },
+    linkedin: {
+      icon: FaLinkedin,
+      label: t('contact.labels.linkedin'),
+      href: getSocialUrl('linkedin'),
+      toastMessage: t('contact.buttons.social.openLinkedin'),
+      external: true,
+    },
+    github: {
+      icon: FaGithub,
+      label: t('contact.labels.github'),
+      href: getSocialUrl('github'),
+      toastMessage: t('contact.buttons.social.openGithub'),
+      external: true,
+    },
   };
 };
 
-// Enhanced Input component with better color management and less aggressive validation
-const FormInput = ({ name, type = 'text', placeholder, multiline = false, errors, touchedFields, watch, getValidationRules, register, ...props }) => {
+const FormInput = ({
+  name,
+  type = 'text',
+  placeholder,
+  multiline = false,
+  errors,
+  getValidationRules,
+  register,
+  ...props
+}) => {
   const hasError = errors[name];
-  const isTouched = touchedFields[name];
-  const fieldValue = watch(name);
   const validationRules = getValidationRules();
-  
-  // Determine border color based on state - more user-friendly approach
-  const getBorderColor = () => {
-    if (hasError) return 'border-[var(--text-error)]';
-    // Only show green if field has sufficient content and no errors
-    if (isTouched && fieldValue && fieldValue.length > 2 && !hasError) return 'border-green-500';
-    return 'border-[var(--text-muted)] focus:border-[var(--text-primary)]';
-  };
-  
   const baseClasses = `
-    w-full p-3 border-2 bg-white transition-all duration-300 resize-none rounded-lg
-    focus:outline-none hover:border-gray-400
-    ${getBorderColor()}
+    w-full p-3 border-2 bg-white transition-colors duration-200 resize-none rounded-lg
+    focus:outline-none focus:border-[var(--color-accent)] hover:border-gray-400
+    ${hasError ? 'border-[var(--text-error)]' : 'border-[var(--gray-300)]'}
   `.trim();
 
   const InputComponent = multiline ? 'textarea' : 'input';
@@ -108,12 +79,9 @@ const FormInput = ({ name, type = 'text', placeholder, multiline = false, errors
         aria-invalid={hasError ? 'true' : 'false'}
         {...props}
       />
-      {hasError && (
-        <p className="text-red-500 ml-1 text-xs flex items-center">
-          
-          {hasError.message}
-        </p>
-      )}
+      {hasError ? (
+        <p className="text-red-500 ml-1 text-xs mt-1">{hasError.message}</p>
+      ) : null}
     </div>
   );
 };
@@ -124,209 +92,143 @@ export default function ContactMe() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const toast = useToast();
 
-  // Dynamic validation rules with translations - more permissive for better UX
-  const getValidationRules = useCallback(() => ({
-    email: {
-      required: t('contact.validation.emailRequired'),
-      validate: (value) => {
-        // Only validate email pattern if field has content
-        if (value && value.trim().length > 0) {
-          const emailPattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
-          return emailPattern.test(value) || t('contact.validation.emailInvalid');
-        }
-        return true;
-      }
-    },
-    subject: {
-      required: t('contact.validation.subjectRequired'),
-      minLength: { 
-        value: 3, 
-        message: t('contact.validation.subjectMinLength')
+  const getValidationRules = useCallback(
+    () => ({
+      email: {
+        required: t('contact.validation.emailRequired'),
+        validate: (value) => {
+          if (value && value.trim().length > 0) {
+            const emailPattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+            return emailPattern.test(value) || t('contact.validation.emailInvalid');
+          }
+          return true;
+        },
       },
-      maxLength: { 
-        value: 100, 
-        message: t('contact.validation.subjectMaxLength')
+      subject: {
+        required: t('contact.validation.subjectRequired'),
+        minLength: { value: 3, message: t('contact.validation.subjectMinLength') },
+        maxLength: { value: 100, message: t('contact.validation.subjectMaxLength') },
       },
-    },
-    message: {
-      required: t('contact.validation.messageRequired'),
-      minLength: { 
-        value: 10, 
-        message: t('contact.validation.messageMinLength') 
+      message: {
+        required: t('contact.validation.messageRequired'),
+        minLength: { value: 10, message: t('contact.validation.messageMinLength') },
+        maxLength: { value: 1000, message: t('contact.validation.messageMaxLength') },
       },
-      maxLength: { 
-        value: 1000, 
-        message: t('contact.validation.messageMaxLength') 
-      },
-    },
-  }), [t]);
+    }),
+    [t]
+  );
 
   const {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isValid, touchedFields },
+    formState: { errors },
     trigger,
-    watch,
-  } = useForm({ 
-    mode: 'onSubmit', // Only validate on submit, not while typing
-    reValidateMode: 'onBlur', // Re-validate on blur after first submission
+  } = useForm({
+    mode: 'onSubmit',
+    reValidateMode: 'onBlur',
     defaultValues: {
       email: '',
       subject: '',
       message: '',
-    }
+    },
   });
 
-  // Enhanced form submission with EmailJS and comprehensive error handling
-  const onSubmit = useCallback(async (data) => {
-    // Prevent double submission
-    if (isSubmitting) return;
-    
-    setIsSubmitting(true);
-    
-    // Show loading toast
-    const loadingToastId = toast.showLoading(
-      t('contact.form.sending')
-    );
+  const onSubmit = useCallback(
+    async (data) => {
+      if (isSubmitting) return;
 
-    try {
-      // Validate all fields before submission
-      const isFormValid = await trigger();
-      if (!isFormValid) {
-        toast.updateToast(loadingToastId, toast.messages.formValidationError(), 'warning');
-        return;
+      setIsSubmitting(true);
+      const loadingToastId = toast.showLoading(t('contact.form.sending'));
+
+      try {
+        const isFormValid = await trigger();
+        if (!isFormValid) {
+          toast.updateToast(loadingToastId, t('toast.formValidationError'), 'warning');
+          return;
+        }
+
+        if (!emailService.isConfigured()) {
+          const emailBody = encodeURIComponent(
+            `${t('contact.labels.email')}: ${data.email}\n` +
+              `${t('contact.form.subjectLabel')}: ${data.subject}\n\n` +
+              `${t('contact.form.messageLabel')}:\n${data.message}`
+          );
+
+          const mailtoLink = `mailto:${contactMethods.email.value}?subject=${encodeURIComponent(data.subject)}&body=${emailBody}`;
+          window.location.href = mailtoLink;
+
+          toast.updateToast(loadingToastId, t('contact.toast.emailClientOpened'), 'info');
+          reset();
+          return;
+        }
+
+        const result = await emailService.sendContactEmail(data);
+
+        if (result.success) {
+          toast.updateToast(loadingToastId, t('toast.emailSent'));
+          reset();
+        } else {
+          throw new Error(result.message || 'Failed to send email');
+        }
+      } catch (error) {
+        console.error('Form submission error:', error);
+
+        if (error.name === 'NetworkError' || error.message.includes('network')) {
+          toast.updateToast(loadingToastId, t('toast.networkError'), 'error');
+        } else {
+          toast.updateToast(loadingToastId, t('toast.emailError'), 'error');
+        }
+      } finally {
+        setIsSubmitting(false);
       }
+    },
+    [reset, toast, t, isSubmitting, trigger, contactMethods.email.value]
+  );
 
-      // Check if EmailJS is configured
-      if (!emailService.isConfigured()) {
-        console.warn('EmailJS not configured, using fallback mailto');
-        
-        // Fallback to mailto if EmailJS is not configured
-        const emailBody = encodeURIComponent(
-          `${t('contact.labels.email')}: ${data.email}\n` +
-          `${t('contact.form.subjectLabel')}: ${data.subject}\n\n` +
-          `${t('contact.form.messageLabel')}:\n${data.message}`
-        );
-        
-        const mailtoLink = `mailto:${contactMethods.email.value}?subject=${encodeURIComponent(data.subject)}&body=${emailBody}`;
-        window.location.href = mailtoLink;
-        
-        toast.updateToast(loadingToastId, 
-          t('contact.toast.emailClientOpened'), 
-          'info'
-        );
-        reset();
-        return;
+  const handleContactClick = useCallback(
+    (method) => {
+      const contact = contactMethods[method];
+      if (!contact) return;
+
+      try {
+        if (contact.external) {
+          window.open(contact.href, '_blank', 'noopener,noreferrer');
+        } else {
+          window.location.href = contact.href;
+        }
+        toast.showInfo(contact.toastMessage);
+      } catch (error) {
+        console.error('Contact method error:', error);
+        toast.showError(t('toast.unexpectedError'));
       }
-
-      // Send email via EmailJS
-      const result = await emailService.sendContactEmail(data);
-
-      if (result.success) {
-        toast.updateToast(loadingToastId, toast.messages.emailSent());
-        reset();
-      } else {
-        throw new Error(result.message || 'Failed to send email');
-      }
-
-    } catch (error) {
-      console.error('Form submission error:', error);
-      
-      // Handle different types of errors
-      if (error.name === 'NetworkError' || error.message.includes('network')) {
-        toast.updateToast(loadingToastId, toast.messages.networkError(), 'error');
-      } else if (error.status === 400) {
-        toast.updateToast(loadingToastId, toast.messages.formValidationError(), 'warning');
-      } else {
-        toast.updateToast(loadingToastId, toast.messages.emailError(), 'error');
-      }
-    } finally {
-      setIsSubmitting(false);
-    }
-  }, [reset, toast, t, isSubmitting, trigger]);
-
-  // Handle contact method clicks with toast notifications
-  const handleContactClick = useCallback((method) => {
-    const contactMethods = getContactMethods(t);
-    const contact = contactMethods[method];
-    if (!contact) return;
-
-    try {
-      const action = contact.action(contact.value);
-      
-      if (contact.external) {
-        window.open(action, '_blank', 'noopener,noreferrer');
-      } else {
-        window.location.href = action;
-      }
-      
-      // Show success toast for contact method click with translated message
-      toast.showInfo(contact.toastMessage);
-    } catch (error) {
-      console.error('Contact method error:', error);
-      toast.showError(t('toast.unexpectedError'));
-    }
-  }, [toast, t]);
-
-  // Contact method component
-  const ContactMethod = ({ method, contact }) => {
-    const Icon = contact.icon;
-    return (
-      <div 
-        className="group flex items-center gap-4 p-3 rounded-xl cursor-pointer transition-all duration-300 hover:bg-[var(--gray-50)] hover:shadow-md"
-        onClick={() => handleContactClick(method)}
-        role="button"
-        tabIndex={0}
-        onKeyDown={(e) => e.key === 'Enter' && handleContactClick(method)}
-        aria-label={`Contact via ${contact.label}`}
-      >
-        <div className={`w-12 h-12 bg-[var(--gray-100)] rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 ${contact.hoverColor} group-hover:text-white group-hover:shadow-lg`}>
-          <Icon className="text-lg" />
-        </div>
-        <div className="flex-1">
-          <div className="text-xs text-[var(--text-muted)] uppercase tracking-wide font-medium">
-            {contact.label}
-          </div>
-          <div className="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--text-secondary)] transition-colors duration-300">
-            {contact.value}
-          </div>
-        </div>
-      </div>
-    );
-  };
+    },
+    [toast, t, contactMethods]
+  );
 
   return (
-    <section id="contact" className="w-full bg-white py-16 px-4">
+    <section id="contact" className="w-full bg-white py-20 px-4">
       <div className="w-full max-w-[var(--max-width-sections)] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-          {/* Contact Form */}
-          <motion.div 
+          <motion.div
             className="w-full"
             initial="hidden"
             whileInView="visible"
             viewport={defaultViewport}
             variants={fadeInLeft}
           >
-            <div className="mb-8">
-              <h2 className="text-[length:var(--font-size-3xl)] lg:text-[length:var(--font-size-4xl)] font-bold text-[var(--text-primary)] mb-4">
-                {t('contact.formTitle')}
-              </h2>
-              <p className="text-[var(--color-text-light)] text-sm leading-relaxed">
-                {t('contact.form.description')}
-              </p>
-            </div>
+            <SectionHeading
+              title={t('contact.formTitle')}
+              description={t('contact.formLead')}
+              align="left"
+            />
 
-            <motion.form 
-              onSubmit={handleSubmit(onSubmit)} 
-              className="space-y-6" 
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="space-y-6"
               noValidate
-              variants={staggerContainer}
-              initial="hidden"
-              whileInView="visible"
-              viewport={defaultViewport}
             >
-              <motion.div variants={staggerItem}>
+              <div>
                 <FormInput
                   name="email"
                   type="email"
@@ -334,62 +236,46 @@ export default function ContactMe() {
                   aria-label={t('contact.labels.email')}
                   autoComplete="email"
                   errors={errors}
-                  touchedFields={touchedFields}
-                  watch={watch}
                   getValidationRules={getValidationRules}
                   register={register}
                 />
-              </motion.div>
-              
-              <motion.div variants={staggerItem}>
+              </div>
+
+              <div>
                 <FormInput
                   name="subject"
                   placeholder={t('contact.form.subjectPlaceholder')}
                   aria-label={t('contact.form.subjectPlaceholder')}
                   errors={errors}
-                  touchedFields={touchedFields}
-                  watch={watch}
                   getValidationRules={getValidationRules}
                   register={register}
                 />
-              </motion.div>
-              
-              <motion.div variants={staggerItem}>
+              </div>
+
+              <div>
                 <FormInput
                   name="message"
                   placeholder={t('contact.form.messagePlaceholder')}
                   multiline
                   aria-label={t('contact.form.messagePlaceholder')}
                   errors={errors}
-                  touchedFields={touchedFields}
-                  watch={watch}
                   getValidationRules={getValidationRules}
                   register={register}
                 />
-              </motion.div>
+              </div>
 
-              {/* Form actions - Button with social icons */}
-              <motion.div 
-                className="flex items-center justify-between"
-                variants={staggerItem}
-              >
-                {/* Submit Button - Smaller size */}
-                <motion.button 
-                  type="submit" 
-                  disabled={!isValid || isSubmitting}
+              <div>
+                <motion.button
+                  type="submit"
+                  disabled={isSubmitting}
                   className={`
-                    py-3 px-6 font-medium transition-all duration-300 rounded-lg
-                    flex items-center space-x-2
-                    ${isSubmitting 
-                      ? 'bg-gray-400 cursor-not-allowed text-white' 
-                      : !isValid
-                        ? 'bg-gray-300 cursor-not-allowed text-gray-500'
-                        : 'bg-[var(--color-black)] hover:bg-[var(--gray-800)] text-white transform hover:shadow-lg'
-                    }
+                    py-3 px-6 font-medium transition-colors duration-200 rounded-lg
+                    flex items-center space-x-2 text-white
+                    ${isSubmitting ? 'bg-gray-400 cursor-not-allowed' : 'bg-[var(--color-black)] hover:bg-[var(--color-accent)]'}
                   `}
-                  aria-label="Send message"
-                  whileHover={!isSubmitting && isValid ? buttonHover : {}}
-                  whileTap={!isSubmitting && isValid ? buttonTap : {}}
+                  aria-label={t('contact.buttons.send')}
+                  whileHover={!isSubmitting ? buttonHover : {}}
+                  whileTap={!isSubmitting ? buttonTap : {}}
                 >
                   {isSubmitting ? (
                     <>
@@ -403,117 +289,50 @@ export default function ContactMe() {
                     </>
                   )}
                 </motion.button>
-
-                
-              </motion.div>
-            </motion.form>
+              </div>
+            </form>
           </motion.div>
 
-          {/* Contact Information */}
-          <motion.div 
+          <motion.div
             className="w-full"
             initial="hidden"
             whileInView="visible"
             viewport={defaultViewport}
             variants={fadeInRight}
           >
-            <div className="mb-8">
-              <h2 className="text-3xl lg:text-4xl font-bold text-[var(--text-primary)] mb-4 leading-tight">
-                {t('contact.letsTalk')} <span className="bg-[var(--color-black)] text-white px-2 py-1">{t('contact.talkHighlight')}</span> {t('contact.talkFor')}
-              </h2>
-              <h3 className="text-xl font-bold text-[var(--text-secondary)] mb-6">
-                {t('contact.somethingSpecial')}
-              </h3>
-              <p className="text-[var(--text-muted)] text-sm leading-relaxed mb-8">
-                {t('contact.description')}
-              </p>
-            </div>
-            
-            {/* Contact Info */}
-            <div className="space-y-4">
-              <div 
-                onClick={() => handleContactClick('email')}
-                className="cursor-pointer group transition-colors duration-200 hover:text-[var(--gray-600)]"
-              >
-                <p className="font-bold text-[var(--text-primary)] group-hover:text-[var(--text-muted)] transition-colors duration-200">
-                  {contactMethods.email.value}
-                </p>
-              </div>
-              
-              <div 
-                onClick={() => handleContactClick('phone')}
-                className="cursor-pointer group transition-colors duration-200 hover:text-[var(--gray-600)]"
-              >
-                <p className="font-bold text-[var(--text-primary)] group-hover:text-[var(--text-muted)] transition-colors duration-200">
-                  {contactMethods.phone.value}
-                </p>
-              </div>
-              {/* Social Icons - Same row as button */}
-            <motion.div 
-              className="flex gap-2"
-              variants={staggerContainer}
-              initial="hidden"
-              whileInView="visible"
-              viewport={defaultViewport}
+            <SectionHeading
+              title={t('contact.asideTitle')}
+              description={t('contact.description')}
+              align="left"
+            />
+
+            <button
+              type="button"
+              onClick={() => handleContactClick('email')}
+              className="text-lg font-semibold text-[var(--text-primary)] hover:text-[var(--color-accent)] transition-colors"
             >
-              <motion.div 
-                onClick={() => handleContactClick('github')}
-                className="w-10 h-10 bg-[var(--color-black)] flex items-center justify-center cursor-pointer transition-all duration-200 hover:bg-[var(--gray-800)] rounded-lg"
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => e.key === 'Enter' && handleContactClick('github')}
-                aria-label="GitHub"
-                variants={staggerItem}
-                whileHover={iconButtonHover}
-                whileTap={iconButtonTap}
-              >
-                <FaGithub className="text-white text-sm" />
-              </motion.div>
-              
-              <motion.div 
-                onClick={() => handleContactClick('linkedin')}
-                className="w-10 h-10 bg-[var(--color-black)] flex items-center justify-center cursor-pointer transition-all duration-200 hover:bg-[var(--gray-800)] rounded-lg"
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => e.key === 'Enter' && handleContactClick('linkedin')}
-                aria-label="LinkedIn"
-                variants={staggerItem}
-                whileHover={iconButtonHover}
-                whileTap={iconButtonTap}
-              >
-                <FaLinkedin className="text-white text-sm" />
-              </motion.div>
-              
-              <motion.div 
-                onClick={() => handleContactClick('email')}
-                className="w-10 h-10 bg-[var(--color-black)] flex items-center justify-center cursor-pointer transition-all duration-200 hover:bg-[var(--gray-800)] rounded-lg"
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => e.key === 'Enter' && handleContactClick('email')}
-                aria-label="Email"
-                variants={staggerItem}
-                whileHover={iconButtonHover}
-                whileTap={iconButtonTap}
-              >
-                <FaEnvelope className="text-white text-sm" />
-              </motion.div>
-              
-              <motion.div 
-                onClick={() => handleContactClick('whatsapp')}
-                className="w-10 h-10 bg-[var(--color-black)] flex items-center justify-center cursor-pointer transition-all duration-200 hover:bg-[var(--gray-800)] rounded-lg"
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => e.key === 'Enter' && handleContactClick('whatsapp')}
-                aria-label="WhatsApp"
-                variants={staggerItem}
-                whileHover={iconButtonHover}
-                whileTap={iconButtonTap}
-              >
-                <FaWhatsapp className="text-white text-sm" />
-              </motion.div>
-            </motion.div>
+              {contactMethods.email.value}
+            </button>
+
+            <div className="flex gap-2 mt-6">
+              {['github', 'linkedin', 'email'].map((method) => {
+                const contact = contactMethods[method];
+                const Icon = contact.icon;
+                return (
+                  <motion.button
+                    key={method}
+                    type="button"
+                    onClick={() => handleContactClick(method)}
+                    className="w-10 h-10 bg-[var(--color-black)] flex items-center justify-center cursor-pointer transition-colors hover:bg-[var(--color-accent)] rounded-lg"
+                    aria-label={contact.label}
+                    whileHover={iconButtonHover}
+                    whileTap={iconButtonTap}
+                  >
+                    <Icon className="text-white text-sm" />
+                  </motion.button>
+                );
+              })}
             </div>
-            
           </motion.div>
         </div>
       </div>

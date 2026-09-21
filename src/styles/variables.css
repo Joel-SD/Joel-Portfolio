@@ -9,7 +9,8 @@
   /* Color system for text */
   --text-primary: #000000;    /* Para títulos y texto principal */
   --text-secondary: #404040;  /* Para subtítulos y texto importante */
-  --text-muted: #919191;     /* Para texto descriptivo y secundario */
+  --text-muted: #5c5c5c;     /* Secondary copy — readable on white */
+  --text-on-dark: #d4d4d8;
   --text-error: #ef4444;     /* Para mensajes de error */
   
   /* Otros colores del sistema */
@@ -18,7 +19,8 @@
   --color-white: #ffffff;
   --color-primary: #000000;
   --color-secondary: #ffffff;
-  --color-accent: #3b82f6;
+  --color-accent: #0d9488;
+  --color-accent-bright: #2dd4bf;
   --color-background: #ffffff;
   --color-card-bg: #f3f4f6;
   --color-text-light: #6b7280;

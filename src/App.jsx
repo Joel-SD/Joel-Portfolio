@@ -16,11 +16,11 @@ function App() {
 
   return (
     <Layout>
-      <Hero></Hero>
-      <Skills></Skills>
-      <MyExperience></MyExperience>
-      <AboutMe></AboutMe>
-      <ContactMe></ContactMe>
+      <Hero />
+      <MyExperience />
+      <Skills />
+      <AboutMe />
+      <ContactMe />
     </Layout>
   );
 }

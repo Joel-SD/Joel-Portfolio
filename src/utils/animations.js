@@ -8,9 +8,8 @@
 // ====================
 // Mejores prácticas: usar once: true para mejor performance
 export const defaultViewport = {
-  once: true, // Anima solo una vez cuando entra en viewport
-  amount: 0.2, // Trigger cuando 20% del elemento es visible
-  margin: "0px 0px -100px 0px" // Trigger un poco antes de que sea visible
+  once: true,
+  amount: 0.15,
 };
 
 // ====================
