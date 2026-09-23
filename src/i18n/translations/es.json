@@ -1,5 +1,6 @@
 {
   "header": {
+    "work": "Trabajo",
     "skills": "Skills",
     "aboutMe": "Sobre mí",
     "experience": "Experiencia",
@@ -12,7 +13,7 @@
     "greeting": "Hola soy",
     "title": "Ingeniero de Software",
     "location": "Ubicado en",
-    "ctaExperience": "Ver experiencia",
+    "ctaExperience": "Ver trabajo",
     "ctaContact": "Escribirme"
   },
   "about": {
@@ -24,6 +25,12 @@
     "experience": "Experiencia",
     "projects": "Trabajo",
     "contact": "Contacto"
+  },
+  "work": {
+    "description": "Tres sistemas donde el problema era la data — estado a escala, un PIM fuera de Mongo, y listas de precios sobre 25 millones de filas.",
+    "problem": "Problema",
+    "did": "Qué hice",
+    "result": "Resultado"
   },
   "skills": {
     "description": "El stack que uso en el trabajo, agrupado como pienso los sistemas.",

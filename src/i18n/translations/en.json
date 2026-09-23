@@ -1,5 +1,6 @@
 {
   "header": {
+    "work": "Work",
     "skills": "Skills",
     "aboutMe": "About",
     "experience": "Experience",
@@ -12,7 +13,7 @@
     "greeting": "Hello I'm",
     "title": "Software Engineer",
     "location": "Located in",
-    "ctaExperience": "See experience",
+    "ctaExperience": "See work",
     "ctaContact": "Get in touch"
   },
   "about": {
@@ -24,6 +25,12 @@
     "experience": "Experience",
     "projects": "Work",
     "contact": "Contact"
+  },
+  "work": {
+    "description": "Three systems where the data was the problem — status at scale, a PIM off Mongo, and price lists on 25 million rows.",
+    "problem": "Problem",
+    "did": "What I did",
+    "result": "Result"
   },
   "skills": {
     "description": "The stack I actually use at work — grouped the way I think about systems.",

@@ -27,12 +27,12 @@ export default function MyExperience() {
   };
 
   return (
-    <section id="experience" className="w-full bg-[var(--color-black)] text-white py-20 px-4">
+    <section id="experience" className="w-full bg-white py-20 px-4">
       <div className="w-full max-w-[var(--max-width-sections)] mx-auto">
-        <SectionHeading title={t('sections.experience')} light />
+        <SectionHeading title={t('sections.experience')} />
 
         <div className="relative">
-          <div className="absolute left-1/2 md:left-8 transform -translate-x-1/2 md:translate-x-0 top-0 bottom-0 w-0.5 bg-[var(--gray-800)]" />
+          <div className="absolute left-1/2 md:left-8 transform -translate-x-1/2 md:translate-x-0 top-0 bottom-0 w-0.5 bg-[var(--gray-200)]" />
 
           <motion.div
             className="space-y-12 md:space-y-16"
@@ -43,9 +43,9 @@ export default function MyExperience() {
           >
             {experience.map((exp, index) => (
               <motion.div key={index} className="relative" variants={staggerItem}>
-                <div className="absolute left-1/2 md:left-6 transform -translate-x-1/2 md:translate-x-0 w-4 h-4 bg-[var(--color-accent-bright)] rounded-full border-4 border-[var(--color-black)] z-10" />
+                <div className="absolute left-1/2 md:left-6 transform -translate-x-1/2 md:translate-x-0 w-4 h-4 bg-[var(--color-accent)] rounded-full border-4 border-white z-10" />
 
-                <div className="ml-8 md:ml-16 mr-4 md:mr-0 bg-[var(--gray-800)] border border-[var(--gray-600)] rounded-xl p-6 md:p-8">
+                <div className="ml-8 md:ml-16 mr-4 md:mr-0 bg-[var(--gray-50)] border border-[var(--gray-200)] rounded-xl p-6 md:p-8">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-2">
                     <div className="flex items-center">
                       <div className="mr-4">
@@ -57,18 +57,18 @@ export default function MyExperience() {
                             onClick={() => handleCompanyClick(exp.website)}
                           />
                         ) : (
-                          <div className="w-12 h-12 bg-[var(--gray-500)] rounded-full flex items-center justify-center text-white font-bold">
+                          <div className="w-12 h-12 bg-[var(--gray-200)] rounded-full flex items-center justify-center text-[var(--text-primary)] font-bold">
                             {exp.company[currentLang][0]}
                           </div>
                         )}
                       </div>
 
                       <div>
-                        <h3 className="font-bold text-lg md:text-xl text-white leading-tight">
+                        <h3 className="font-bold text-lg md:text-xl text-[var(--text-primary)] leading-tight">
                           {exp.position[currentLang]}
                         </h3>
                         <p
-                          className="text-[var(--gray-300)] text-sm md:text-base font-medium cursor-pointer hover:text-[var(--color-accent-bright)] transition-colors"
+                          className="text-[var(--text-muted)] text-sm md:text-base font-medium cursor-pointer hover:text-[var(--color-accent)] transition-colors"
                           onClick={() => handleCompanyClick(exp.website)}
                           role="button"
                           tabIndex={0}
@@ -79,24 +79,24 @@ export default function MyExperience() {
                       </div>
                     </div>
 
-                    <span className="inline-block px-3 py-1 bg-[var(--gray-600)] text-white text-xs md:text-sm font-medium rounded-full">
+                    <span className="inline-block px-3 py-1 bg-[var(--gray-200)] text-[var(--text-secondary)] text-xs md:text-sm font-medium rounded-full">
                       {exp.period[currentLang]}
                     </span>
                   </div>
 
-                  <ul className="space-y-2 text-[var(--text-on-dark)] text-sm md:text-base leading-relaxed list-disc pl-5">
+                  <ul className="space-y-2 text-[var(--text-secondary)] text-sm md:text-base leading-relaxed list-disc pl-5">
                     {splitBullets(exp.description[currentLang]).map((item) => (
                       <li key={item}>{item}</li>
                     ))}
                   </ul>
 
                   {exp.technologies ? (
-                    <div className="mt-4 pt-4 border-t border-[var(--gray-500)]">
+                    <div className="mt-4 pt-4 border-t border-[var(--gray-200)]">
                       <div className="flex flex-wrap gap-2">
                         {exp.technologies.map((tech) => (
                           <span
                             key={tech}
-                            className="inline-block px-2 py-1 bg-[var(--gray-600)] text-[var(--text-on-dark)] text-xs rounded-md"
+                            className="inline-block px-2 py-1 bg-white border border-[var(--gray-200)] text-[var(--text-secondary)] text-xs rounded-md"
                           >
                             {tech}
                           </span>

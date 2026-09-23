@@ -89,7 +89,7 @@ const Hero = () => {
             </motion.button>
             <motion.button
               type="button"
-              onClick={() => scrollToSection('experience')}
+              onClick={() => scrollToSection('work')}
               className="px-5 py-3 rounded-lg border-2 border-[var(--color-black)] text-[var(--text-primary)] font-medium hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] transition-colors"
               whileHover={{ y: -1 }}
               whileTap={{ scale: 0.98 }}

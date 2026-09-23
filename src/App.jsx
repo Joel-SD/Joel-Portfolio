@@ -3,6 +3,7 @@ import './App.css';
 import './index.css';
 import Hero from './components/sections/hero/Hero';
 import Layout from './components/layout/Layout';
+import Work from './components/sections/work/Work';
 import Skills from './components/sections/skills/Skills';
 import MyExperience from './components/sections/myExperience/MyExperience';
 import AboutMe from './components/sections/aboutMe/AboutMe';
@@ -17,6 +18,7 @@ function App() {
   return (
     <Layout>
       <Hero />
+      <Work />
       <MyExperience />
       <Skills />
       <AboutMe />

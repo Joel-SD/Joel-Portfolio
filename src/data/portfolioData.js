@@ -43,6 +43,7 @@ export const portfolioData = {
         en: "• Maintain and develop disaster recovery analytics platform for Dell's enterprise infrastructure, processing real-time data from mission-critical recovery systems.\n• Built high-performance Node.js services and Angular frontend using Redis caching, complex data structures (graphs, trees), and sophisticated business logic patterns.\n• Collaborated with Principal Engineer on system design, code quality standards, and architectural decisions for enterprise-scale applications.",
         es: "• Mantengo y desarrollo la plataforma de análisis de recuperación de desastres de la infraestructura empresarial de Dell, procesando datos en tiempo real de sistemas de recuperación de misión crítica.\n• Construí servicios de alto rendimiento en Node.js y frontend Angular utilizando Redis caching, estructuras de datos complejas (grafos, árboles) y patrones sofisticados de lógica de negocio.\n• Colaboré con Ingeniero Principal en diseño de sistemas, estándares de calidad de código y decisiones arquitectónicas para aplicaciones a escala empresarial.",
       },
+      technologies: ['Node.js', 'Angular', 'Redis'],
     },
     {
       company: {
@@ -60,9 +61,10 @@ export const portfolioData = {
         es: 'Abril 2024 - Junio 2026',
       },
       description: {
-        en: "• Led end-to-end migration of multi-tenant SaaS platform from Node.js + MongoDB to Go + SQL Server, achieving 40%+ latency reduction on high-traffic endpoints.\n• Shipped production REST APIs using C#/.NET 6 and Go with hexagonal architecture, serving 10+ enterprise tenants.\n• Optimized SQL Server stored procedures on 25M+ record tables through execution plan analysis and index tuning.\n• Maintained CI/CD pipelines (Azure Pipelines, GitHub Actions) with automated testing (NUnit, xUnit, Jest, SonarQube).",
-        es: "• Lideré la migración end-to-end de una plataforma SaaS multi-tenant de Node.js + MongoDB a Go + SQL Server, logrando una reducción de latencia del 40%+ en endpoints de alto tráfico.\n• Implementé APIs REST en producción usando C#/.NET 6 y Go con arquitectura hexagonal, sirviendo a 10+ clientes empresariales.\n• Optimicé procedimientos almacenados en SQL Server en tablas de 25M+ registros mediante análisis de planes de ejecución y ajuste de índices.\n• Mantuve pipelines de CI/CD (Azure Pipelines, GitHub Actions) con pruebas automatizadas (NUnit, xUnit, Jest, SonarQube).",
+        en: "• Led end-to-end migration of PIM data — catalogs, product attributes, and attribute groups — from Node.js + MongoDB to Go + SQL Server, with hexagonal architecture and a microservices split, serving 10+ enterprise tenants.\n• Shipped production REST APIs using C#/.NET 6 and Go.\n• Optimized SQL Server stored procedures and search on 25M+ row price-list tables through execution plan analysis and index tuning, cutting latency 40%+ on those large lists.\n• Maintained CI/CD pipelines (Azure Pipelines, GitHub Actions) with automated testing (NUnit, xUnit, Jest, SonarQube).",
+        es: "• Lideré la migración end-to-end de data de PIM — catálogos, atributos de producto y grupos de atributos — de Node.js + MongoDB a Go + SQL Server, con arquitectura hexagonal y un split a microservicios, sirviendo a 10+ clientes empresariales.\n• Implementé APIs REST en producción usando C#/.NET 6 y Go.\n• Optimicé stored procedures y la búsqueda en SQL Server sobre tablas de listas de precios de 25M+ filas mediante análisis de planes de ejecución e índices, bajando 40%+ la latencia en esas listas grandes.\n• Mantuve pipelines de CI/CD (Azure Pipelines, GitHub Actions) con pruebas automatizadas (NUnit, xUnit, Jest, SonarQube).",
       },
+      technologies: ['Go', 'SQL Server', 'C#/.NET', 'Node.js', 'MongoDB'],
     },
     {
       company: {
@@ -83,6 +85,7 @@ export const portfolioData = {
         en: '• Developed enterprise application modules using Java, Angular, TypeScript in a hybrid Agile environment.\n• Integrated third-party REST APIs and internal services; implemented unit tests and contributed to code quality.',
         es: '• Desarrollé módulos de aplicaciones empresariales usando Java, Angular, TypeScript en un entorno Agile híbrido.\n• Integré APIs REST de terceros y servicios internos; implementé pruebas unitarias y contribuí a la calidad del código.',
       },
+      technologies: ['Java', 'Angular', 'TypeScript'],
     },
     {
       company: {
@@ -103,6 +106,82 @@ export const portfolioData = {
         en: '• Built cross-platform mobile features in React and React Native (Android/iOS), including dark mode, i18n, deep linking, and OAuth integrations (Google/Facebook/Apple).\n• Integrated Google Analytics and third-party APIs; created animations with React Native Reanimated.',
         es: '• Construí funcionalidades móviles multiplataforma en React y React Native (Android/iOS), incluyendo modo oscuro, i18n, deep linking, e integraciones OAuth (Google/Facebook/Apple).\n• Integré Google Analytics y APIs de terceros; creé animaciones con React Native Reanimated.',
       },
+      technologies: ['React Native', 'React', 'TypeScript'],
+    },
+  ],
+
+  caseStudies: [
+    {
+      id: 'dell-status-graph',
+      company: {
+        en: 'Infotree · Dell',
+        es: 'Infotree · Dell',
+      },
+      title: {
+        en: 'Status of thousands of apps and processes',
+        es: 'Estado de miles de apps y procesos',
+      },
+      problem: {
+        en: 'The platform has to show every application and process in the company, and whether it is actually up. That is thousands of records, with relationships that only make sense as a graph — and business rules about how all of it should be structured on screen.',
+        es: 'La plataforma tiene que mostrar cada aplicación y proceso de la empresa, y si realmente está en pie. Son miles de registros, con relaciones que solo se entienden como grafo — y reglas de negocio sobre cómo estructurar todo eso en pantalla.',
+      },
+      did: {
+        en: 'I built the Node services, Angular screens, Redis layer, and the graph visualizations. The hard part was not drawing the graph. It was the rules: how to model the data so statuses and connections read as a system, not a dump.',
+        es: 'Construí los servicios en Node, las pantallas en Angular, Redis y las visualizaciones de grafos. Lo difícil no era dibujar el grafo. Eran las reglas: cómo modelar los datos para que estados y conexiones se lean como un sistema, no como un dump.',
+      },
+      result: {
+        en: 'Operators can see apps, processes, and status in one place — including graph views of how things connect — on a large-scale recovery analytics system.',
+        es: 'Los operadores ven apps, procesos y estado en un solo lugar — incluyendo vistas de grafo de cómo se conectan — en un sistema de analítica de recuperación a gran escala.',
+      },
+      stack: ['Node.js', 'Angular', 'Redis'],
+    },
+    {
+      id: 'hypernova-catalogs',
+      company: {
+        en: 'Hypernova Labs',
+        es: 'Hypernova Labs',
+      },
+      title: {
+        en: 'PIM catalogs and attributes, off Mongo onto SQL',
+        es: 'Catálogos y atributos de PIM, de Mongo a SQL',
+      },
+      problem: {
+        en: 'The PIM lived in Mongo behind Node: catalogs, product attributes, and groups of attributes — color, and everything else you would hang off a product. A customer needed that model on SQL. Scale, structure, cost, and an architecture you can keep clean were all on the line.',
+        es: 'El PIM vivía en Mongo detrás de Node: catálogos, atributos de producto y grupos de atributos — color, y todo lo demás que cuelga de un producto. Un cliente necesitaba ese modelo en SQL. Escala, estructura, costo y una arquitectura que se pudiera mantener limpia: todo estaba en juego.',
+      },
+      did: {
+        en: 'I owned the migration end-to-end: that PIM model from Node.js + MongoDB onto Go + SQL Server, hexagonal services, and a microservices split. Data model, APIs, and the cutover.',
+        es: 'Me hice cargo de la migración de extremo a extremo: ese modelo de PIM de Node.js + MongoDB a Go + SQL Server, servicios hexagonales y un split a microservicios. Modelo de datos, APIs y el corte.',
+      },
+      result: {
+        en: 'Catalogs, attributes, and attribute groups sit on SQL with a cleaner architecture, on a platform serving 10+ enterprise tenants.',
+        es: 'Catálogos, atributos y grupos de atributos quedaron en SQL con una arquitectura más limpia, en una plataforma que sirve a 10+ tenants empresariales.',
+      },
+      stack: ['Go', 'SQL Server', 'Node.js', 'MongoDB'],
+    },
+    {
+      id: 'hypernova-pricelists',
+      company: {
+        en: 'Hypernova Labs',
+        es: 'Hypernova Labs',
+      },
+      title: {
+        en: 'Price lists on 25 million rows',
+        es: 'Listas de precios sobre 25 millones de filas',
+      },
+      problem: {
+        en: 'Search and large price lists on a 25M-row table were crawling. Bad indexes, stored procedures that were structured poorly, and the usual bad habits around them — including other procs that touched the same data.',
+        es: 'La búsqueda y las listas grandes de precios sobre una tabla de 25M de filas iban a duras. Índices malos, stored procedures mal estructurados y las malas prácticas de siempre — incluyendo otros SPs que tocaban los mismos datos.',
+      },
+      did: {
+        en: 'Execution-plan analysis, index work, and rewriting the procedures around that price-list table so search and those lists were not fighting the schema.',
+        es: 'Análisis de planes de ejecución, índices y reescritura de los procedimientos alrededor de esa tabla de listas de precios para que la búsqueda y esas listas no pelearan con el schema.',
+      },
+      result: {
+        en: '40%+ lower latency on those large price-list endpoints. Search on that table became something people could actually use.',
+        es: '40%+ menos latencia en esos endpoints de listas grandes de precios. La búsqueda sobre esa tabla pasó a ser algo que la gente podía usar de verdad.',
+      },
+      stack: ['SQL Server', 'T-SQL'],
     },
   ],
 
@@ -146,7 +225,7 @@ export const portfolioData = {
   ],
 
   resume: {
-    fileName: 'Joel Carrasco Resume.pdf'
+    fileName: 'Joel Carrasco Resume.pdf',
   },
 
   contact: {

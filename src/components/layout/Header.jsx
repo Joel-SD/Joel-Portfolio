@@ -109,6 +109,7 @@ const Header = () => {
   };
 
   const navLinks = [
+    { name: t('header.work'), action: () => scrollToSection('work') },
     { name: t('header.experience'), action: () => scrollToSection('experience') },
     { name: t('header.skills'), action: () => scrollToSection('skills') },
     { name: t('header.aboutMe'), action: () => scrollToSection('aboutMe') },

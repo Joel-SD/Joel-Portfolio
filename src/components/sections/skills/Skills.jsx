@@ -79,9 +79,9 @@ export default function Skills() {
   })).filter((group) => group.items.length > 0);
 
   return (
-    <section id="skills" className="w-full flex flex-col items-center py-20 px-4 bg-[var(--color-background)]">
+    <section id="skills" className="w-full flex flex-col items-center py-20 px-4 bg-[var(--color-black)]">
       <div className="w-full max-w-[var(--max-width-sections)] flex flex-col items-center">
-        <SectionHeading title={t('header.skills')} description={t('skills.description')} />
+        <SectionHeading title={t('header.skills')} description={t('skills.description')} light />
 
         <div className="w-full flex flex-col gap-10">
           {grouped.map((group) => (
@@ -93,7 +93,7 @@ export default function Skills() {
               viewport={defaultViewport}
               variants={fadeInUp}
             >
-              <h3 className="text-sm font-semibold uppercase tracking-widest text-[var(--color-accent)] mb-4">
+              <h3 className="text-sm font-semibold uppercase tracking-widest text-[var(--color-accent-bright)] mb-4">
                 {t(`skills.categories.${group.category}`)}
               </h3>
               <motion.div
@@ -105,17 +105,17 @@ export default function Skills() {
                   return (
                     <motion.div
                       key={`${tech.name}-${index}`}
-                      className="bg-white border border-[var(--gray-200)] rounded-xl p-4 flex flex-col items-center justify-center gap-2 hover:border-[var(--color-accent)] transition-colors"
+                      className="bg-[var(--gray-800)] border border-[var(--gray-600)] rounded-xl p-4 flex flex-col items-center justify-center gap-2 hover:border-[var(--color-accent-bright)] transition-colors"
                       variants={staggerItem}
                     >
-                      <div className="text-2xl text-[var(--text-secondary)]">
+                      <div className="text-2xl text-[var(--text-on-dark)]">
                         {IconComponent ? (
                           <IconComponent />
                         ) : (
                           <span className="text-lg font-bold">{tech.name.charAt(0)}</span>
                         )}
                       </div>
-                      <span className="text-sm font-medium text-[var(--text-secondary)] text-center leading-tight">
+                      <span className="text-sm font-medium text-[var(--gray-300)] text-center leading-tight">
                         {tech.name}
                       </span>
                     </motion.div>
