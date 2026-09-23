@@ -5,6 +5,7 @@ import { portfolioData } from '../../../data/portfolioData';
 import BoySVG from '../../ui/icons/BoySVG';
 import { SiGithub, SiLinkedin } from 'react-icons/si';
 import { useBreakpoint } from '../../../hooks/useBreakpoint';
+import { scrollToSection } from '../../../utils/scrollToSection';
 import {
   heroAnimation,
   fadeInLeft,
@@ -14,15 +15,6 @@ import {
   iconButtonHover,
   iconButtonTap,
 } from '../../../utils/animations';
-
-const scrollToSection = (sectionId) => {
-  const element = document.getElementById(sectionId);
-  if (!element) return;
-  window.scrollTo({
-    top: element.offsetTop - 96,
-    behavior: 'smooth',
-  });
-};
 
 const Hero = () => {
   const { t, i18n } = useTranslation();

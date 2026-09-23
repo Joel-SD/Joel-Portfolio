@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useToast } from '../../hooks/useToast';
 import { portfolioData } from '../../data/portfolioData';
 import LanguageSwitcher from '../ui/LanguageSwitcher';
+import { scrollToSection as scrollTo } from '../../utils/scrollToSection';
 import {
   fadeInDown,
   staggerContainer,
@@ -28,6 +29,27 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const header = document.querySelector('header');
+    if (!header) return;
+
+    const syncHeaderHeight = () => {
+      document.documentElement.style.setProperty(
+        '--header-height',
+        `${Math.round(header.getBoundingClientRect().height)}px`
+      );
+    };
+
+    syncHeaderHeight();
+    const observer = new ResizeObserver(syncHeaderHeight);
+    observer.observe(header);
+    window.addEventListener('resize', syncHeaderHeight);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('resize', syncHeaderHeight);
+    };
+  }, [isMobileMenuOpen]);
+
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
@@ -41,26 +63,8 @@ const Header = () => {
     };
   }, [isMobileMenuOpen]);
 
-  // Smooth scroll to section
   const scrollToSection = (sectionId) => {
-    if (sectionId === 'hero') {
-      // Scroll to top
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    } else {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        const headerHeight = 96;
-        const elementPosition = element.offsetTop - headerHeight;
-        
-        window.scrollTo({
-          top: elementPosition,
-          behavior: 'smooth'
-        });
-      }
-    }
+    scrollTo(sectionId);
     setIsMobileMenuOpen(false);
   };
 
