@@ -27,7 +27,7 @@
     "contact": "Contacto"
   },
   "work": {
-    "description": "Tres sistemas donde el problema era la data — estado a escala, un PIM fuera de Mongo, y listas de precios sobre 25 millones de filas.",
+    "description": "Tres sistemas donde el problema era la data — grafos a escala empresarial, un PIM fuera de Mongo, y listas de precios sobre 25 millones de filas.",
     "problem": "Problema",
     "did": "Qué hice",
     "result": "Resultado"

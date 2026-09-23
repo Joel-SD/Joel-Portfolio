@@ -40,8 +40,8 @@ export const portfolioData = {
         es: 'Junio 2026 - Presente',
       },
       description: {
-        en: "• Maintain and develop disaster recovery analytics platform for Dell's enterprise infrastructure, processing real-time data from mission-critical recovery systems.\n• Built high-performance Node.js services and Angular frontend using Redis caching, complex data structures (graphs, trees), and sophisticated business logic patterns.\n• Collaborated with Principal Engineer on system design, code quality standards, and architectural decisions for enterprise-scale applications.",
-        es: "• Mantengo y desarrollo la plataforma de análisis de recuperación de desastres de la infraestructura empresarial de Dell, procesando datos en tiempo real de sistemas de recuperación de misión crítica.\n• Construí servicios de alto rendimiento en Node.js y frontend Angular utilizando Redis caching, estructuras de datos complejas (grafos, árboles) y patrones sofisticados de lógica de negocio.\n• Colaboré con Ingeniero Principal en diseño de sistemas, estándares de calidad de código y decisiones arquitectónicas para aplicaciones a escala empresarial.",
+        en: "• Maintain and develop a large-scale analytics platform for enterprise infrastructure, with real-time data and graph-shaped relationships.\n• Built Node.js services and Angular screens using Redis caching, graph and tree structures, and business rules for how that data is shown.\n• Collaborated with a Principal Engineer on system design, code quality, and architecture for enterprise-scale applications.",
+        es: "• Mantengo y desarrollo una plataforma de analítica a gran escala para infraestructura empresarial, con data en tiempo real y relaciones en forma de grafo.\n• Construí servicios en Node.js y pantallas en Angular usando Redis, estructuras de grafos y árboles, y reglas de negocio para cómo se muestra esa data.\n• Colaboré con un Ingeniero Principal en diseño de sistemas, calidad de código y arquitectura para aplicaciones a escala empresarial.",
       },
       technologies: ['Node.js', 'Angular', 'Redis'],
     },
@@ -118,20 +118,20 @@ export const portfolioData = {
         es: 'Infotree · Dell',
       },
       title: {
-        en: 'Status of thousands of apps and processes',
-        es: 'Estado de miles de apps y procesos',
+        en: 'Status and relationships at large scale',
+        es: 'Estado y relaciones a gran escala',
       },
       problem: {
-        en: 'The platform has to show every application and process in the company, and whether it is actually up. That is thousands of records, with relationships that only make sense as a graph — and business rules about how all of it should be structured on screen.',
-        es: 'La plataforma tiene que mostrar cada aplicación y proceso de la empresa, y si realmente está en pie. Son miles de registros, con relaciones que solo se entienden como grafo — y reglas de negocio sobre cómo estructurar todo eso en pantalla.',
+        en: 'A large-scale system has to show the status of thousands of entities and how they connect. That data only makes sense as a graph, with business rules about how it should be structured on screen.',
+        es: 'Un sistema a gran escala tiene que mostrar el estado de miles de entidades y cómo se conectan. Esa data solo se entiende como grafo, con reglas de negocio sobre cómo estructurarla en pantalla.',
       },
       did: {
         en: 'I built the Node services, Angular screens, Redis layer, and the graph visualizations. The hard part was not drawing the graph. It was the rules: how to model the data so statuses and connections read as a system, not a dump.',
         es: 'Construí los servicios en Node, las pantallas en Angular, Redis y las visualizaciones de grafos. Lo difícil no era dibujar el grafo. Eran las reglas: cómo modelar los datos para que estados y conexiones se lean como un sistema, no como un dump.',
       },
       result: {
-        en: 'Operators can see apps, processes, and status in one place — including graph views of how things connect — on a large-scale recovery analytics system.',
-        es: 'Los operadores ven apps, procesos y estado en un solo lugar — incluyendo vistas de grafo de cómo se conectan — en un sistema de analítica de recuperación a gran escala.',
+        en: 'Status and connections sit in one place, including graph views, without dumping the raw data.',
+        es: 'Estado y conexiones quedan en un solo lugar, incluyendo vistas de grafo, sin tirar la data cruda.',
       },
       stack: ['Node.js', 'Angular', 'Redis'],
     },
@@ -209,7 +209,7 @@ export const portfolioData = {
 
   stats: [
     {
-      value: '5+',
+      value: '4+',
       label: {
         en: 'Years shipping',
         es: 'Años en producción',

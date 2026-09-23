@@ -27,7 +27,7 @@
     "contact": "Contact"
   },
   "work": {
-    "description": "Three systems where the data was the problem — status at scale, a PIM off Mongo, and price lists on 25 million rows.",
+    "description": "Three systems where the data was the problem — graphs at enterprise scale, a PIM off Mongo, and price lists on 25 million rows.",
     "problem": "Problem",
     "did": "What I did",
     "result": "Result"
